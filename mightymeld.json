@@ -1,0 +1,5 @@
+{
+  "run": "yarn dev",
+  "include": ["src"],
+  "web_server_url": "http://localhost:4444"
+}
