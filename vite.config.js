@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: ["@mightymeld/runtime/babel-plugin-mightymeld"],
+        plugins: process.env.MIGHTYMELD
+          ? ["@mightymeld/runtime/babel-plugin-mightymeld"]
+          : [],
       },
     }),
   ],
