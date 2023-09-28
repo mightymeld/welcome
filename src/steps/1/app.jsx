@@ -10,6 +10,8 @@ import {
   ListItemText,
   Stack,
   TextField,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
 } from "@mui/material";
 import TASKS from "./tasks";
@@ -17,6 +19,7 @@ import TASKS from "./tasks";
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
   const [newTaskName, setNewTaskName] = useState("");
+  const [filter, setFilter] = useState("all");
 
   const toggleDone = (id) => {
     console.log(id);
@@ -37,11 +40,7 @@ export default function App() {
   };
 
   return (
-    <Box
-      sx={{
-        padding: 5,
-      }}
-    >
+    <Box p={5}>
       <Typography variant="h2" sx={{ marginBottom: 3 }}>
         To-do App
       </Typography>
@@ -58,9 +57,26 @@ export default function App() {
           Add
         </Button>
       </Stack>
-      <List sx={{
-  marginTop: 2
-}}>
+      <ToggleButtonGroup
+        color="primary"
+        size="small"
+        value={filter}
+        exclusive
+        onChange={(e, f) => setFilter(f)}
+        aria-label="Filter"
+        sx={{ paddingTop: 10 }}
+      >
+        <ToggleButton disableRipple value="all">
+          All
+        </ToggleButton>
+        <ToggleButton disableRipple value="active">
+          Active
+        </ToggleButton>
+        <ToggleButton disableRipple value="done">
+          Done
+        </ToggleButton>
+      </ToggleButtonGroup>
+      <List>
         {tasks.map((task) => {
           const labelId = `checkbox-list-label-${task.id}`;
 

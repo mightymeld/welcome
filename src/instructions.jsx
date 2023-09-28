@@ -5,7 +5,7 @@ import { steps } from "./main";
 
 const WIDTH = 300;
 
-export default function Instructions({ children }) {
+export default function Instructions({ fullPage, children }) {
   useEffect(() => {
     document.body.style.marginLeft = `${WIDTH}px`;
 
@@ -14,17 +14,21 @@ export default function Instructions({ children }) {
     };
   }, []);
   const { pathname } = useLocation();
-  const currentStep = parseInt(pathname.match(/steps\/(\d+)$/)[1], 10);
+  const stepMatch = pathname.match(/steps\/(\d+)$/);
+  const currentStep = stepMatch ? parseInt(stepMatch[1], 10) : NaN;
   return (
     <Box
       sx={{
         position: "fixed",
         top: 0,
         left: 0,
-        width: WIDTH,
+        width: fullPage ? "100%" : WIDTH,
         height: "100vh",
-        backgroundColor: "lightyellow",
-        borderRight: "1px solid #dc0",
+        background: "#ffffe0",
+        borderColor: "#dc0",
+        borderStyle: "solid",
+        borderWidth: "0",
+        borderRightWidth: fullPage ? "0" : "1px",
         boxSizing: "border-box",
         padding: 2,
       }}
