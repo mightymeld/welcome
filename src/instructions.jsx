@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Box } from "@mui/material";
 import { steps } from "./main";
 
-const WIDTH = 250;
+const WIDTH = 300;
 
-export default function Home({ children }) {
+export default function Instructions({ children }) {
   useEffect(() => {
     document.body.style.marginLeft = `${WIDTH}px`;
 
@@ -15,8 +16,8 @@ export default function Home({ children }) {
   const { pathname } = useLocation();
   const currentStep = parseInt(pathname.match(/steps\/(\d+)$/)[1], 10);
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         position: "fixed",
         top: 0,
         left: 0,
@@ -25,13 +26,13 @@ export default function Home({ children }) {
         backgroundColor: "lightyellow",
         borderRight: "1px solid #dc0",
         boxSizing: "border-box",
-        padding: 20,
+        padding: 2,
       }}
     >
       {children}
       {currentStep === 1 && (
         <Link style={{ position: "absolute", bottom: 20, left: 20 }} to="/">
-          🏡 Home
+          ↑ Home
         </Link>
       )}
       {currentStep > 1 && (
@@ -50,6 +51,6 @@ export default function Home({ children }) {
           Next →
         </Link>
       )}
-    </div>
+    </Box>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./home";
-import ErrorPage from "./error";
 import Step1 from "./steps/1";
 import Step2 from "./steps/2";
 import Step3 from "./steps/3";
@@ -14,7 +13,6 @@ export const routes = [
   {
     path: "/",
     element: <Home />,
-    errorElement: <ErrorPage />,
   },
   ...steps.map((step, index) => ({
     path: `/steps/${index + 1}`,

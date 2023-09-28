@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Clone welcome project",
+    "done": true
+  },
+  {
+    "id": 2,
+    "name": "Add MightyMeld instance ID",
+    "done": true
+  },
+  {
+    "id": 3,
+    "name": "Learn to use MightyMeld",
+    "done": false
+  }
+]

@@ -29,3 +29,7 @@ body {
 body.has-instructions {
   margin-left: 250px;
 }
+
+li.done {
+  text-decoration: line-through;
+}

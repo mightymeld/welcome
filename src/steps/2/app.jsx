@@ -1,41 +1,21 @@
 import { useState } from "react";
 import {
   Box,
+  Typography,
+  TextField,
+  Stack,
   Button,
-  Checkbox,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Stack,
-  TextField,
-  Typography,
+  Checkbox,
 } from "@mui/material";
 import TASKS from "./tasks";
 
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
-  const [newTaskName, setNewTaskName] = useState("");
-
-  const toggleDone = (id) => {
-    console.log(id);
-    setTasks((tasks) =>
-      tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task,
-      ),
-    );
-  };
-
-  const addTask = () => {
-    if (newTaskName === "") return;
-    setTasks((tasks) => [
-      ...tasks,
-      { id: tasks.length + 1, name: newTaskName, done: false },
-    ]);
-    setNewTaskName("");
-  };
-
   return (
     <Box
       sx={{
@@ -49,27 +29,19 @@ export default function App() {
         <TextField
           variant="outlined"
           label="What needs to be done?"
-          value={newTaskName}
-          onKeyDown={(e) => e.key === "Enter" && addTask()}
-          onChange={(e) => setNewTaskName(e.target.value)}
           fullWidth
         />
-        <Button variant="contained" onClick={() => addTask()}>
-          Add
-        </Button>
+        <Button variant="contained">Add</Button>
       </Stack>
-      <List sx={{
-  marginTop: 2
-}}>
+      <List sx={{ marginTop: 10 }}>
         {tasks.map((task) => {
           const labelId = `checkbox-list-label-${task.id}`;
 
           return (
-            <ListItem key={task.id} disablePadding>
+            <ListItem key={task} disablePadding>
               <ListItemButton
                 role={undefined}
-                onClick={() => toggleDone(task.id)}
-                disableRipple
+                // onClick={handleToggle(value)}
                 dense
               >
                 <ListItemIcon>

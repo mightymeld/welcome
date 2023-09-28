@@ -1,12 +1,17 @@
+import { Typography } from "@mui/material";
 import Instructions from "../../instructions";
+import App from "./app";
 
-export default function Step2() {
+export default function Step1() {
   return (
     <div>
+      <App />
       <Instructions>
-        <h1>Step 2</h1>
+        <Typography variant="h5" sx={{ marginBottom: 2 }}>
+          Step 2: Style Changes
+        </Typography>
+        <Typography variant="body1">Example instruction text</Typography>
       </Instructions>
-      <p>App goes here</p>
     </div>
   );
 }
