@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 
 const WIDTH = 300;
 
-export const steps = [Step0, Step1, Step2, Step3];
+export const steps = [Step0, Step1, Step2, Step3, Step4];
 
 function Instructions({ fullPage, children }) {
   useEffect(() => {
@@ -130,7 +130,7 @@ function Step0() {
             </Typography>
             <Box mt={4}>
               <Button component={Link} to="/step/1" variant="outlined">
-                Continue Tutorial →
+                Continue →
               </Button>
             </Box>
           </>
@@ -228,6 +228,29 @@ function Step3() {
         Save the file and when you come back here, the filter buttons should be
         working!
       </Typography>
+    </Instructions>
+  );
+}
+
+function Step4() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        Step 4: Git Diff
+      </Typography>
+      <Typography variant="body1" my={3}>
+        Let’s see what changes we’ve made so far.
+      </Typography>
+      <Typography variant="body1" my={3}>
+        <strong>Your task:</strong> Click on the diff icon in the toolbar.
+      </Typography>
+      <Box
+        component="img"
+        src="/diff.png"
+        sx={{ border: 1 }}
+        width="212px"
+        height="48px"
+      />
     </Instructions>
   );
 }
