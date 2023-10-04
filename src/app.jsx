@@ -14,7 +14,7 @@ import {
   ToggleButtonGroup,
   Typography,
 } from "@mui/material";
-import TASKS from "./tasks";
+import TASKS from "./tasks.json";
 
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <Box p={5}>
-      <Typography variant="h2" sx={{ marginBottom: 3 }}>
+      <Typography variant="h2" mb={3}>
         To-do App
       </Typography>
       <Stack direction="row" spacing={2}>
@@ -64,7 +64,7 @@ export default function App() {
         exclusive
         onChange={(e, f) => setFilter(f)}
         aria-label="Filter"
-        sx={{ paddingTop: 10, marginBottom: 10 }}
+        sx={{ paddingTop: 10 }}
       >
         <ToggleButton disableRipple value="all">
           All
