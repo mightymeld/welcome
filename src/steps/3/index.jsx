@@ -1,10 +1,10 @@
-import { TextField, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import Instructions from "../../instructions";
 import App from "./app";
 
 const CODE = `if ((filter === "active" && task.done) || (filter === "done" && !task.done)) {\n  return null;\n}`;
 
-export default function Step1() {
+export default function Step3() {
   return (
     <div>
       <App />
@@ -17,15 +17,27 @@ export default function Step1() {
           fix that.
         </Typography>
         <Typography variant="body1" my={3}>
-          <strong>Your task:</strong> Right-click on the &lt;List&gt; and choose
-          “Open in Editor”. Then add the following code at the very start of the
-          map function (before <code>labelId</code>)
+          <strong>Your task:</strong> Right-click on the &lt;List&gt; containing
+          the tasks and choose “Open in Editor”.{" "}
+        </Typography>
+        <Box
+          component="img"
+          src="/open-in-vscode.png"
+          sx={{
+            maxWidth: "100%",
+            height: "auto",
+            border: 1,
+          }}
+        />
+        <Typography variant="body1" my={3}>
+          Then add the following code at the very start of the map function
+          (before <code>const labelId</code>)
         </Typography>
         <TextField
           label="Code"
           fullWidth
           multiline
-          rows={6}
+          rows={5}
           defaultValue={CODE}
           inputProps={{
             readOnly: true,
@@ -34,7 +46,7 @@ export default function Step1() {
         />
         <Typography variant="body1" my={3}>
           Save the file and when you come back here, the filter buttons should
-          be working.
+          be working!
         </Typography>
       </Instructions>
     </div>

@@ -36,7 +36,7 @@ export default function Instructions({ fullPage, children }) {
       {children}
       {currentStep === 1 && (
         <Link style={{ position: "absolute", bottom: 20, left: 20 }} to="/">
-          ↑ Home
+          ← Previous
         </Link>
       )}
       {currentStep > 1 && (

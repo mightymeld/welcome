@@ -16,7 +16,7 @@ export default function Step1() {
           Step 1: Play with the app
         </Typography>
         <Typography variant="body1" my={3}>
-          Let’s start by playing with our to-do app a bit.
+          On the right you’ll see a to-do app. Let’s play with it a bit.
         </Typography>
         <Typography variant="body1" my={3}>
           <strong>Your task:</strong> Add a new to-do called “Buy groceries”
