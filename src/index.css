@@ -25,11 +25,3 @@ body {
   margin: 0;
   padding: 0;
 }
-
-body.has-instructions {
-  margin-left: 250px;
-}
-
-li.done {
-  text-decoration: line-through;
-}
