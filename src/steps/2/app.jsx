@@ -65,8 +65,8 @@ export default function App() {
         onChange={(e, f) => setFilter(f)}
         aria-label="Filter"
         sx={{
-  paddingTop: 4
-}}
+          paddingTop: 4,
+        }}
       >
         <ToggleButton disableRipple value="all">
           All

@@ -14,7 +14,7 @@ export default function Step3() {
         </Typography>
         <Typography variant="body1" my={3}>
           You may have noticed that the filter buttons don’t do anything. Let’s
-          fix that.
+          fix that!
         </Typography>
         <Typography variant="body1" my={3}>
           <strong>Your task:</strong> Right-click on the &lt;List&gt; containing
