@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useMatches } from "react-router-dom";
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  Container,
+  TextField,
+  Typography,
+} from "@mui/material";
 import confetti from "canvas-confetti";
 
 const WIDTH = 300;
@@ -166,10 +173,14 @@ function Step2() {
         The spacing above the filter buttons is a little too large. Let’s make
         that smaller.
       </Typography>
-      <Typography variant="body1" mt={3}>
+      <Typography variant="body1" my={3}>
         <strong>Your task:</strong> Switch to edit mode and select the
         &lt;ToggleButtonGroup&gt;. Change <code>padding-top</code> from 10 to 4.
       </Typography>
+      <Alert severity="info">
+        If you see &lt;App&gt; instead of &lt;ToggleButtonGroup&gt;, try
+        double-clicking
+      </Alert>
       <Box
         component="img"
         src="/selected-filter.png"
