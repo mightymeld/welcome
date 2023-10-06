@@ -85,7 +85,6 @@ export default function App() {
           return (
             <ListItem key={task.id} disablePadding>
               <ListItemButton
-                role={undefined}
                 onClick={() => toggleDone(task.id)}
                 disableRipple
                 dense
@@ -94,7 +93,6 @@ export default function App() {
                   <Checkbox
                     edge="start"
                     checked={task.done}
-                    tabIndex={-1}
                     disableRipple
                     inputProps={{ "aria-labelledby": labelId }}
                   />
