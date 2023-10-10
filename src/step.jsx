@@ -10,7 +10,7 @@ export default function Step() {
 
   return (
     <>
-      {step && <App />}
+      {step ? <App /> : null}
       <Step />
     </>
   );

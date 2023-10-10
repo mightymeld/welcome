@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useMatches } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Alert,
   Box,
@@ -11,6 +12,34 @@ import {
 import confetti from "canvas-confetti";
 
 const WIDTH = 300;
+
+const theme = createTheme({
+  typography: {
+    fontFamily: "Oracle, sans-serif",
+    h1: {
+      fontWeight: 500,
+    },
+  },
+  palette: {
+    primary: {
+      main: "#582AB9",
+    },
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        variant: "contained",
+        disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+          shadow: "none",
+        },
+      },
+    },
+  },
+});
 
 export const steps = [Step0, Step1, Step2, Step3, Step4];
 
@@ -58,26 +87,26 @@ function Instructions({ fullPage, children }) {
   }
 
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: fullPage ? "100%" : WIDTH,
-        height: "100vh",
-        background: "#ffffe0",
-        borderColor: "#dc0",
-        borderStyle: "solid",
-        borderWidth: "0",
-        borderRightWidth: fullPage ? "0" : "1px",
-        boxSizing: "border-box",
-        padding: 2,
-      }}
-    >
-      {children}
-      {prevLink}
-      {nextLink}
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: fullPage ? "100%" : WIDTH,
+          height: "100vh",
+          borderStyle: "solid",
+          borderWidth: 0,
+          borderRightWidth: fullPage ? "0" : "1px",
+          boxSizing: "border-box",
+          padding: 2,
+        }}
+      >
+        {children}
+        {prevLink}
+        {nextLink}
+      </Box>
+    </ThemeProvider>
   );
 }
 
@@ -92,10 +121,12 @@ function Step0() {
     setClicked(true);
     confetti({
       particleCount: 150,
+      startVelocity: 60,
       spread: 60,
       angle: -90,
       origin: { x: 0.5, y: -0.5 },
-      ticks: 100,
+      ticks: 110,
+      colors: ["#582AB9"],
     });
   };
 
@@ -125,9 +156,7 @@ function Step0() {
           below.
         </Typography>
         <Box my={4}>
-          <Button onClick={click} variant="outlined">
-            Click me
-          </Button>
+          <Button onClick={click}>Click me</Button>
         </Box>
         {clicked && (
           <>
