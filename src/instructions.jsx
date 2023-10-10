@@ -97,6 +97,8 @@ function Instructions({ fullPage, children }) {
           height: "100vh",
           borderStyle: "solid",
           borderWidth: 0,
+          borderColor: "#F0EFED",
+          backgroundColor: "#FCFDF8",
           borderRightWidth: fullPage ? "0" : "1px",
           boxSizing: "border-box",
           padding: 2,
@@ -149,7 +151,7 @@ function Step0() {
           src="/test-drive.gif"
           width="110px"
           height="38px"
-          alt="Test drive toggle button"
+          alt="Clicking test drive toggle button"
         />
         <Typography variant="body1" my={3}>
           <strong>Your task:</strong> Enter test drive and click the button
@@ -233,28 +235,12 @@ function Step3() {
         Step 3: Code
       </Typography>
       <Typography variant="body1" my={3}>
-        You may have noticed that the filter buttons don’t do anything. Let’s
-        fix that!
+        You may have noticed the filter doesn’t do anything. Let’s fix that!
       </Typography>
       <Typography variant="body1" my={3}>
-        <strong>Your task:</strong> Right-click on the &lt;List&gt; containing
-        the tasks and choose “Open in Editor”.{" "}
-      </Typography>
-      <Box
-        component="img"
-        src="/open-in-vscode.png"
-        sx={{
-          maxWidth: "100%",
-          height: "auto",
-          border: 1,
-        }}
-      />
-      <Typography variant="body1" my={3}>
-        Then add the following code at the very start of the map function
-        (before <code>const labelId</code>)
+        First, <strong>copy this code</strong>.
       </Typography>
       <TextField
-        label="Code"
         fullWidth
         multiline
         rows={5}
@@ -265,8 +251,22 @@ function Step3() {
         }}
       />
       <Typography variant="body1" my={3}>
-        Save the file and when you come back here, the filter buttons should be
-        working!
+        Now open the relevent file in your editor by{" "}
+        <strong>right-clicking</strong> the &lt;List&gt;.
+      </Typography>
+      <Box
+        component="img"
+        src="/open-in-editor.png"
+        sx={{
+          maxWidth: "100%",
+          height: "auto",
+          border: 1,
+        }}
+      />
+      <Typography variant="body1" my={3}>
+        After <strong>pasting</strong> the code after <code>const labelId</code>
+        , <strong>save the file</strong> and when you come back here, the filter
+        buttons should be working!
       </Typography>
     </Instructions>
   );
@@ -291,6 +291,9 @@ function Step4() {
         width="212px"
         height="48px"
       />
+      <Typography variant="h5" mt={10}>
+        That’s it! You’ve completed the tutorial.
+      </Typography>
     </Instructions>
   );
 }
