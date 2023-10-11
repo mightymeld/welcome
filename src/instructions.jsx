@@ -16,6 +16,7 @@ const WIDTH = 300;
 const theme = createTheme({
   typography: {
     fontFamily: "Oracle, sans-serif",
+    fontSize: 12,
     h1: {
       fontWeight: 500,
     },
@@ -160,8 +161,7 @@ function Step0() {
           }}
           component="img"
           src="/test-drive.gif"
-          width="110px"
-          height="38px"
+          width="100%"
           alt="Clicking test drive toggle button"
         />
         <Typography variant="body1" my={3}>
