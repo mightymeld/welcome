@@ -55,35 +55,17 @@ function Instructions({ fullPage, children }) {
   const [match] = useMatches();
   const step = match.params?.step ? parseInt(match.params.step, 10) : 0;
 
-  let prevLink = null;
-  let nextLink = null;
+  let prevPath = null;
+  let nextPath = null;
 
   if (step === 1) {
-    prevLink = (
-      <Link style={{ position: "absolute", bottom: 20, left: 20 }} to="/">
-        ← Previous
-      </Link>
-    );
+    prevPath = "/";
   } else if (step > 1) {
-    prevLink = (
-      <Link
-        style={{ position: "absolute", bottom: 20, left: 20 }}
-        to={`/step/${step - 1}`}
-      >
-        ← Previous
-      </Link>
-    );
+    prevPath = `/step/${step - 1}`;
   }
 
   if (step > 0 && step < steps.length - 1) {
-    nextLink = (
-      <Link
-        style={{ position: "absolute", bottom: 20, right: 20 }}
-        to={`/step/${step + 1}`}
-      >
-        Next →
-      </Link>
-    );
+    nextPath = `/step/${step + 1}`;
   }
 
   return (
@@ -94,19 +76,48 @@ function Instructions({ fullPage, children }) {
           top: 0,
           left: 0,
           width: fullPage ? "100%" : WIDTH,
-          height: "100vh",
-          borderStyle: "solid",
-          borderWidth: 0,
-          borderColor: "#F0EFED",
-          backgroundColor: "#FCFDF8",
-          borderRightWidth: fullPage ? "0" : "1px",
-          boxSizing: "border-box",
-          padding: 2,
         }}
       >
-        {children}
-        {prevLink}
-        {nextLink}
+        <Box
+          sx={{
+            height: "100vh",
+            borderStyle: "solid",
+            borderColor: "#F0EFED",
+            backgroundColor: "#FCFDF8",
+            borderWidth: 0,
+            borderRightWidth: fullPage ? "0" : "1px",
+            boxSizing: "border-box",
+            padding: 2,
+            paddingBottom: 6,
+            overflow: "auto",
+          }}
+        >
+          {children}
+        </Box>
+        {prevPath && (
+          <Button
+            component={Link}
+            size="small"
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              left: 15,
+            }}
+            to={prevPath}
+          >
+            ← Previous
+          </Button>
+        )}
+        {nextPath && (
+          <Button
+            component={Link}
+            size="small"
+            sx={{ position: "absolute", bottom: 20, right: 15 }}
+            to={nextPath}
+          >
+            Next →
+          </Button>
+        )}
       </Box>
     </ThemeProvider>
   );
