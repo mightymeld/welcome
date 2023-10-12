@@ -35,7 +35,7 @@ const theme = createTheme({
     },
   },
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       main: "#17a5ea",
     },
@@ -43,11 +43,8 @@ const theme = createTheme({
       main: "#2dd4bf",
     },
     background: {
-      default: "#0f172a",
-      paper: "#0f172a",
-    },
-    text: {
-      primary: "#94a3b8",
+      default: "#EEE",
+      paper: "#FFF",
     },
   },
 });
@@ -61,8 +58,8 @@ export default function App() {
     console.log(id);
     setTasks((tasks) =>
       tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task,
-      ),
+        task.id === id ? { ...task, done: !task.done } : task
+      )
     );
   };
 
@@ -87,7 +84,7 @@ export default function App() {
         <Typography
           variant="h1"
           mb={3}
-          color="text.primary"
+          color="text.secondary"
           align="center"
           sx={{
             fontFamily:
@@ -98,13 +95,18 @@ export default function App() {
         </Typography>
         <Stack direction="row" spacing={2}>
           <TextField
-            variant="outlined"
+            variant="filled"
             size="small"
             label="What needs to be done?"
             value={newTaskName}
             onKeyDown={(e) => e.key === "Enter" && addTask()}
             onChange={(e) => setNewTaskName(e.target.value)}
             fullWidth
+            inputProps={{
+              sx: {
+                backgroundColor: "background.paper",
+              },
+            }}
           />
           <Button variant="contained" onClick={() => addTask()}>
             Add
@@ -118,26 +120,44 @@ export default function App() {
           onChange={(e, f) => setFilter(f)}
           aria-label="Filter"
           sx={{
-            paddingTop: 4,
-            paddingBottom: 1,
+            backgroundColor: "background.paper",
+            marginTop: 10,
+            marginBottom: 2,
           }}
         >
-          <ToggleButton disableRipple value="all">
+          <ToggleButton
+            disableRipple
+            value="all"
+            sx={{
+              px: 2,
+            }}
+          >
             All
           </ToggleButton>
-          <ToggleButton disableRipple value="active">
+          <ToggleButton
+            disableRipple
+            value="active"
+            sx={{
+              px: 2,
+            }}
+          >
             Active
           </ToggleButton>
-          <ToggleButton disableRipple value="done">
+          <ToggleButton
+            disableRipple
+            value="done"
+            sx={{
+              px: 2,
+            }}
+          >
             Done
           </ToggleButton>
         </ToggleButtonGroup>
-        <Paper>
-          <List>
-            {tasks.map((task) => {
-              const labelId = `checkbox-list-label-${task.id}`;
-
-              return (
+        <List>
+          {tasks.map((task) => {
+            const labelId = `checkbox-list-label-${task.id}`;
+            return (
+              <Paper elevation={0} sx={{ marginBottom: 1 }}>
                 <ListItem key={task.id} disablePadding>
                   <ListItemButton
                     onClick={() => toggleDone(task.id)}
@@ -149,7 +169,9 @@ export default function App() {
                         edge="start"
                         checked={task.done}
                         disableRipple
-                        inputProps={{ "aria-labelledby": labelId }}
+                        inputProps={{
+                          "aria-labelledby": labelId,
+                        }}
                       />
                     </ListItemIcon>
                     <ListItemText
@@ -162,10 +184,10 @@ export default function App() {
                     />
                   </ListItemButton>
                 </ListItem>
-              );
-            })}
-          </List>
-        </Paper>
+              </Paper>
+            );
+          })}
+        </List>
       </Box>
     </ThemeProvider>
   );

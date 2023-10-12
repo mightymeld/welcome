@@ -18,12 +18,23 @@ const theme = createTheme({
     fontFamily: "Oracle, sans-serif",
     fontSize: 12,
     h1: {
+      fontSize: 60,
       fontWeight: 500,
+      letterSpacing: -1.5,
+    },
+    body1: {
+      fontSize: 16,
+    },
+    body2: {
+      fontSize: 14,
     },
   },
   palette: {
     primary: {
       main: "#582AB9",
+    },
+    text: {
+      primary: "#fcfdf8",
     },
   },
   components: {
@@ -36,6 +47,13 @@ const theme = createTheme({
         root: {
           borderRadius: 0,
           shadow: "none",
+          paddingTop: 7,
+          paddingBottom: 7,
+          paddingLeft: 15,
+          paddingRight: 15,
+          textTransform: "none",
+          fontSize: 13,
+          fontWeight: 400,
         },
       },
     },
@@ -84,7 +102,8 @@ function Instructions({ fullPage, children }) {
             height: "100vh",
             borderStyle: "solid",
             borderColor: "#F0EFED",
-            backgroundColor: "#FCFDF8",
+            backgroundColor: "#19163E",
+            color: "#fcfdf8",
             borderWidth: 0,
             borderRightWidth: fullPage ? "0" : "1px",
             boxSizing: "border-box",
@@ -147,15 +166,17 @@ function Step0() {
   return (
     <Instructions fullPage>
       <Container maxWidth="sm">
-        <Typography variant="h1">Welcome</Typography>
-        <Typography variant="body1" my={3}>
-          Before we start editing an app, you’ll need to learn how to navigate
-          this tutorial. Clicking items on this page will select them, but if
-          you want to click them you’ll need to enter Test Drive.
+        <Typography variant="h1" mt={8}>
+          Welcome
+        </Typography>
+        <Typography variant="body1" my={1}>
+          This app teaches you how to use MightyMeld.
+        </Typography>
+        <Typography variant="body1" mt={6} mb={1}>
+          <strong>1.</strong> Click “Drive” in the toolbar.
         </Typography>
         <Box
           sx={{
-            border: 1,
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -164,21 +185,20 @@ function Step0() {
           width="100%"
           alt="Clicking test drive toggle button"
         />
-        <Typography variant="body1" my={3}>
-          <strong>Your task:</strong> Enter test drive and click the button
-          below.
+        <Typography variant="body1" mt={4} mb={1}>
+          <strong>2.</strong> Click this button.
         </Typography>
-        <Box my={4}>
+        <Box>
           <Button onClick={click}>Click me</Button>
         </Box>
         {clicked && (
           <>
-            <Typography variant="body1" mt={3}>
+            <Typography variant="body1" mt={4} mb={1}>
               You clicked the button! Feel free to play with test drive, and
               continue when you’re ready.
             </Typography>
-            <Box mt={4}>
-              <Button component={Link} to="/step/1" variant="outlined">
+            <Box>
+              <Button component={Link} to="/step/1">
                 Continue →
               </Button>
             </Box>
@@ -195,10 +215,10 @@ function Step1() {
       <Typography variant="h5" mb={3}>
         Step 1: Play with the app
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         On the right you’ll see a to-do app. Let’s play with it a bit.
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Add a new to-do called “Buy groceries”
       </Typography>
     </Instructions>
@@ -211,11 +231,11 @@ function Step2() {
       <Typography variant="h5" mb={3}>
         Step 2: Style Changes
       </Typography>
-      <Typography variant="body1" mt={3}>
+      <Typography variant="body2" mt={3}>
         The spacing above the filter buttons is a little too large. Let’s make
         that smaller.
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Switch to edit mode and select the
         &lt;ToggleButtonGroup&gt;. Change <code>padding-top</code> from 10 to 4.
       </Typography>
@@ -245,23 +265,33 @@ function Step3() {
       <Typography variant="h5" mb={3}>
         Step 3: Code
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         You may have noticed the filter doesn’t do anything. Let’s fix that!
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         First, <strong>copy this code</strong>.
       </Typography>
       <TextField
+        variant="standard"
         fullWidth
         multiline
         rows={5}
         defaultValue={code}
-        inputProps={{
+        sx={{
+          backgroundColor: "background.paper",
+        }}
+        InputProps={{
+          disableUnderline: true,
           readOnly: true,
-          sx: { fontFamily: "monospace", fontSize: 12 },
+          sx: {
+            padding: 1,
+            fontFamily: "monospace",
+            color: "#000",
+            fontSize: 12,
+          },
         }}
       />
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         Now open the relevent file in your editor by{" "}
         <strong>right-clicking</strong> the &lt;List&gt;.
       </Typography>
@@ -274,7 +304,7 @@ function Step3() {
           border: 1,
         }}
       />
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         After <strong>pasting</strong> the code after <code>const labelId</code>
         , <strong>save the file</strong> and when you come back here, the filter
         buttons should be working!
@@ -289,10 +319,10 @@ function Step4() {
       <Typography variant="h5" mb={3}>
         Step 4: Git Diff
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         Let’s see what changes we’ve made so far.
       </Typography>
-      <Typography variant="body1" my={3}>
+      <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Click on the diff icon in the toolbar.
       </Typography>
       <Box
