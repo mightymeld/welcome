@@ -54,8 +54,6 @@ function Instructions({ fullPage, children }) {
         <Box
           sx={{
             height: "100vh",
-            borderStyle: "solid",
-            borderColor: "#F0EFED",
             backgroundColor: "#19163E",
             color: "#fcfdf8",
             borderWidth: 0,
