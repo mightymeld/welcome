@@ -47,7 +47,8 @@ export default function App() {
       <Box
         sx={{
           backgroundColor: "background.default",
-          height: "100vh",
+          minHeight: "100vh",
+          boxSizing: "border-box",
           padding: 5,
         }}
       >
