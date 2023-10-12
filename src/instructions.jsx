@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useMatches } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   Alert,
   Box,
@@ -10,55 +10,9 @@ import {
   Typography,
 } from "@mui/material";
 import confetti from "canvas-confetti";
+import { instructionsTheme } from "./theme";
 
 const WIDTH = 300;
-
-const theme = createTheme({
-  typography: {
-    fontFamily: "Oracle, sans-serif",
-    fontSize: 12,
-    h1: {
-      fontSize: 60,
-      fontWeight: 500,
-      letterSpacing: -1.5,
-    },
-    body1: {
-      fontSize: 16,
-    },
-    body2: {
-      fontSize: 14,
-    },
-  },
-  palette: {
-    primary: {
-      main: "#582AB9",
-    },
-    text: {
-      primary: "#fcfdf8",
-    },
-  },
-  components: {
-    MuiButton: {
-      defaultProps: {
-        variant: "contained",
-        disableElevation: true,
-      },
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-          shadow: "none",
-          paddingTop: 7,
-          paddingBottom: 7,
-          paddingLeft: 15,
-          paddingRight: 15,
-          textTransform: "none",
-          fontSize: 13,
-          fontWeight: 400,
-        },
-      },
-    },
-  },
-});
 
 export const steps = [Step0, Step1, Step2, Step3, Step4];
 
@@ -88,7 +42,7 @@ function Instructions({ fullPage, children }) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={instructionsTheme}>
       <Box
         sx={{
           position: "fixed",

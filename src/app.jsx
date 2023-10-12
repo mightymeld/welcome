@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   Box,
   Button,
@@ -16,38 +16,8 @@ import {
   ToggleButtonGroup,
   Typography,
 } from "@mui/material";
+import { appTheme } from "./theme";
 import TASKS from "./tasks.json";
-
-const theme = createTheme({
-  typography: {
-    // fontSize: 10,
-    h1: {
-      fontSize: 40,
-      fontWeight: 500,
-    },
-    h2: {
-      fontSize: 30,
-      fontWeight: 500,
-    },
-    h3: {
-      fontSize: 20,
-      fontWeight: 500,
-    },
-  },
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#17a5ea",
-    },
-    secondary: {
-      main: "#2dd4bf",
-    },
-    background: {
-      default: "#EEE",
-      paper: "#FFF",
-    },
-  },
-});
 
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
@@ -58,8 +28,8 @@ export default function App() {
     console.log(id);
     setTasks((tasks) =>
       tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
+        task.id === id ? { ...task, done: !task.done } : task,
+      ),
     );
   };
 
@@ -73,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={appTheme}>
       <Box
         sx={{
           backgroundColor: "background.default",
