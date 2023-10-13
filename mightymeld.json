@@ -1,6 +1,6 @@
 {
   "run": "npm run dev",
-  "include": ["src", "prefabs"],
+  "include": ["src", "prefabs", ".prettierrc"],
   "web_server_url": "http://localhost:4444",
   "prefab_dir": "prefabs",
   "run_prettier": true
