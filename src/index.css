@@ -24,3 +24,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+strong {
+  color: #c1d7eb;
+  /*
+  text-decoration: underline;
+  text-decoration-color: #c1d7eb55;
+  text-decoration-thickness: 2px;
+  */
+}
+
+code {
+  opacity: 0.9;
+  background: #ffffff22;
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: 1px solid #00000022;
+}

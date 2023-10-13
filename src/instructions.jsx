@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import confetti from "canvas-confetti";
+import copy from "copy-to-clipboard";
 import { instructionsTheme } from "./theme";
 
 const WIDTH = 300;
@@ -55,7 +56,7 @@ function Instructions({ fullPage, children }) {
           sx={{
             height: "100vh",
             backgroundColor: "#19163E",
-            color: "#fcfdf8",
+            color: "#D5D5E3",
             borderWidth: 0,
             borderRightWidth: fullPage ? "0" : "1px",
             boxSizing: "border-box",
@@ -125,7 +126,7 @@ function Step0() {
           This app teaches you how to use MightyMeld.
         </Typography>
         <Typography variant="body1" mt={6} mb={1}>
-          <strong>1.</strong> Click “Drive” in the toolbar.
+          1. <strong>Click “Drive”</strong> in the toolbar
         </Typography>
         <Box
           sx={{
@@ -136,9 +137,10 @@ function Step0() {
           src="/test-drive.gif"
           width="100%"
           alt="Clicking test drive toggle button"
+          border={1}
         />
         <Typography variant="body1" mt={4} mb={1}>
-          <strong>2.</strong> Click this button.
+          2. <strong>Click</strong> this button.
         </Typography>
         <Box>
           <Button onClick={click}>Click me</Button>
@@ -146,8 +148,8 @@ function Step0() {
         {clicked && (
           <>
             <Typography variant="body1" mt={4} mb={1}>
-              You clicked the button! Feel free to play with test drive, and
-              continue when you’re ready.
+              You clicked the button! Feel free to play with Drive, and continue
+              when you’re ready.
             </Typography>
             <Box>
               <Button component={Link} to="/step/1">
@@ -189,10 +191,12 @@ function Step2() {
       </Typography>
       <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Switch to edit mode and select the
-        &lt;Box&gt; surrounding the filter. Change <code>pt</code> from 10 to 4.
+        <code>&lt;Box&gt;</code> surrounding the filter. Change <code>pt</code>{" "}
+        from <code>10</code> to <code>4</code>.
       </Typography>
       <Alert severity="info">
-        If you see &lt;App&gt; instead of &lt;Box&gt;, try double-clicking
+        If you see <code>&lt;App&gt;</code> instead of <code>&lt;Box&gt;</code>,
+        try double-clicking
       </Alert>
       <Box
         component="img"
@@ -220,45 +224,58 @@ function Step3() {
         You may have noticed the filter doesn’t do anything. Let’s fix that!
       </Typography>
       <Typography variant="body2" my={3}>
-        First, <strong>copy this code</strong>.
+        1. <strong>Copy</strong> this code.{" "}
       </Typography>
-      <TextField
-        variant="standard"
-        fullWidth
-        multiline
-        rows={5}
-        defaultValue={code}
-        sx={{
-          backgroundColor: "background.paper",
-        }}
-        InputProps={{
-          disableUnderline: true,
-          readOnly: true,
-          sx: {
-            padding: 1,
-            fontFamily: "monospace",
-            color: "#000",
-            fontSize: 12,
-          },
-        }}
-      />
+      <Box sx={{ position: "relative" }}>
+        <TextField
+          variant="standard"
+          fullWidth
+          multiline
+          rows={5}
+          defaultValue={code}
+          sx={{
+            backgroundColor: "background.paper",
+          }}
+          InputProps={{
+            disableUnderline: true,
+            readOnly: true,
+            sx: {
+              padding: 1,
+              fontFamily: "monospace",
+              color: "#000",
+              fontSize: 12,
+            },
+          }}
+        />
+        <Button
+          size="small"
+          onClick={() => copy(code)}
+          sx={{
+            padding: "2px",
+            position: "absolute",
+            bottom: "5px",
+            right: "5px",
+          }}
+        >
+          Copy
+        </Button>
+      </Box>
       <Typography variant="body2" my={3}>
-        Now open the relevent file in your editor by{" "}
-        <strong>right-clicking</strong> the &lt;List&gt;.
+        2. <strong>Right-click</strong> the <code>&lt;List&gt;</code> to open
+        the relevent file in your editor.
       </Typography>
       <Box
         component="img"
         src="/open-in-editor.png"
+        border={1}
         sx={{
           maxWidth: "100%",
           height: "auto",
-          border: 1,
         }}
       />
       <Typography variant="body2" my={3}>
-        After <strong>pasting</strong> the code after <code>const labelId</code>
-        , <strong>save the file</strong> and when you come back here, the filter
-        buttons should be working!
+        3. <strong>Paste</strong> the code before the line with{" "}
+        <code>const labelId</code>, and <strong>save the file</strong>.
       </Typography>
     </Instructions>
   );
