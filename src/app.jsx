@@ -83,52 +83,58 @@ export default function App() {
             Add
           </Button>
         </Stack>
-        <ToggleButtonGroup
-          color="primary"
-          size="small"
-          value={filter}
-          exclusive
-          onChange={(e, f) => setFilter(f)}
-          aria-label="Filter"
-          sx={{
-            backgroundColor: "background.paper",
-            marginTop: 10,
-            marginBottom: 2,
-          }}
-        >
-          <ToggleButton
-            disableRipple
-            value="all"
+        <Box mt={10} mb={1}>
+          <ToggleButtonGroup
+            color="primary"
+            size="small"
+            value={filter}
+            exclusive
+            onChange={(e, f) => setFilter(f)}
+            aria-label="Filter"
             sx={{
-              px: 2,
+              backgroundColor: "background.paper",
             }}
           >
-            All
-          </ToggleButton>
-          <ToggleButton
-            disableRipple
-            value="active"
-            sx={{
-              px: 2,
-            }}
-          >
-            Active
-          </ToggleButton>
-          <ToggleButton
-            disableRipple
-            value="done"
-            sx={{
-              px: 2,
-            }}
-          >
-            Done
-          </ToggleButton>
-        </ToggleButtonGroup>
+            <ToggleButton
+              disableRipple
+              value="all"
+              sx={{
+                px: 2,
+              }}
+            >
+              All
+            </ToggleButton>
+            <ToggleButton
+              disableRipple
+              value="active"
+              sx={{
+                px: 2,
+              }}
+            >
+              Active
+            </ToggleButton>
+            <ToggleButton
+              disableRipple
+              value="done"
+              sx={{
+                px: 2,
+              }}
+            >
+              Done
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
+
         <List>
           {tasks.map((task) => {
             const labelId = `checkbox-list-label-${task.id}`;
             return (
-              <Paper elevation={0} sx={{ marginBottom: 1 }}>
+              <Paper
+                elevation={0}
+                sx={{
+                  marginBottom: 1,
+                }}
+              >
                 <ListItem key={task.id} disablePadding>
                   <ListItemButton
                     onClick={() => toggleDone(task.id)}
