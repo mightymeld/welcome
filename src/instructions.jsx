@@ -189,11 +189,10 @@ function Step2() {
       </Typography>
       <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Switch to edit mode and select the
-        &lt;ToggleButtonGroup&gt;. Change <code>padding-top</code> from 10 to 4.
+        &lt;Box&gt; surrounding the filter. Change <code>pt</code> from 10 to 4.
       </Typography>
       <Alert severity="info">
-        If you see &lt;App&gt; instead of &lt;ToggleButtonGroup&gt;, try
-        double-clicking
+        If you see &lt;App&gt; instead of &lt;Box&gt;, try double-clicking
       </Alert>
       <Box
         component="img"

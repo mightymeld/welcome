@@ -83,7 +83,7 @@ export default function App() {
             Add
           </Button>
         </Stack>
-        <Box mt={10} mb={1}>
+        <Box pt={10} pb={1}>
           <ToggleButtonGroup
             color="primary"
             size="small"
