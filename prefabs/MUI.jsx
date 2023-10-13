@@ -41,7 +41,7 @@ import {
 } from "@mui/material";
 
 // Icons
-import Add from "@mui/icons-material/Add";
+import { Add } from "@mui/icons-material";
 
 /* Layout
    ------ */
