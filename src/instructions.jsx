@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   Container,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -15,7 +16,17 @@ import { instructionsTheme } from "./theme";
 
 const WIDTH = 300;
 
-export const steps = [Step0, Step1, Step2, Step3, Step4];
+export const steps = [
+  Step0,
+  Step1,
+  Step2,
+  Step3,
+  Step4,
+  Step5,
+  Step6,
+  Step7,
+  Step8,
+];
 
 function Instructions({ fullPage, children }) {
   useEffect(() => {
@@ -213,12 +224,12 @@ function Step2() {
 }
 
 function Step3() {
-  const code = `if ((filter === "active" && task.done) || (filter === "done" && !task.done)) {\n  return null;\n}`;
+  const exampleCode = `if ((filter === "active" && task.done) || (filter === "done" && !task.done)) {\n  return null;\n}`;
 
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 3: Code
+        Step 3: Editing Code
       </Typography>
       <Typography variant="body2" my={3}>
         You may have noticed the filter doesn’t do anything. Let’s fix that!
@@ -232,7 +243,7 @@ function Step3() {
           fullWidth
           multiline
           rows={5}
-          defaultValue={code}
+          defaultValue={exampleCode}
           sx={{
             backgroundColor: "background.paper",
           }}
@@ -249,7 +260,7 @@ function Step3() {
         />
         <Button
           size="small"
-          onClick={() => copy(code)}
+          onClick={() => copy(exampleCode)}
           sx={{
             padding: "2px",
             position: "absolute",
@@ -300,9 +311,132 @@ function Step4() {
         width="212px"
         height="48px"
       />
-      <Typography variant="h5" mt={10}>
-        That’s it! You’ve completed the tutorial.
+    </Instructions>
+  );
+}
+
+function Step5() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        Step 5: Component Tree
       </Typography>
+      <Typography variant="body2" my={3}>
+        So far we’ve been working in the <code>&lt;App&gt;</code> component, but
+        you can change which component is shown in the left panel.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        <strong>Your task:</strong> Navigate between the{" "}
+        <code>&lt;App&gt;</code> and <code>&lt;Footer&gt;</code> components.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        1. <strong>Double-click</strong> to go down the tree.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        2. <strong>Click the arrow</strong> to go up.
+      </Typography>
+      <Box
+        component="img"
+        src="/up-down.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
+      <Typography variant="body2" my={3}>
+        3. You can also <strong>double-click on the canvas</strong> to go down.
+      </Typography>
+      <Box
+        component="img"
+        src="/canvas-down.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
+    </Instructions>
+  );
+}
+
+function Step6() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        Step 6: Prefabs
+      </Typography>
+      <Typography variant="body2" my={3}>
+        1. <strong>Open the MUI prefabs </strong> from the library panel.
+      </Typography>
+      <Box
+        component="img"
+        src="/show-prefabs.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
+      <Typography variant="body2" my={3}>
+        2. <strong>Drag</strong> a <code>&lt;Button&gt;</code> into the{" "}
+        <code>&lt;Stack&gt;</code>.
+      </Typography>
+      <Box
+        component="img"
+        src="/drag-button.gif"
+        sx={{ border: 1 }}
+        width="100%"
+      />
+    </Instructions>
+  );
+}
+
+function Step7() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        Step 7: Text
+      </Typography>
+      <Typography variant="body2" my={3}>
+        1. <strong>Select</strong> the button’s text node.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        2. <strong>Rename</strong> the label to “Clear”.
+      </Typography>
+      <Box
+        component="img"
+        src="/rename-button.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
+    </Instructions>
+  );
+}
+
+function Step8() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        Step 8: Adding props
+      </Typography>
+      <Typography variant="body2" my={3}>
+        Let’s give some functionality to the “Clear” button.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        1. <strong>Select</strong> the button.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        2. <strong>Add a new prop</strong> named <code>onClick</code> with the
+        value <code>clearCompleted</code>.
+      </Typography>
+      <Box
+        component="img"
+        src="/onclick-handler.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
     </Instructions>
   );
 }

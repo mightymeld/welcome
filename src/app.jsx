@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { appTheme } from "./theme";
 import TASKS from "./tasks.json";
+import { Footer } from "./footer";
 
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
@@ -40,6 +41,10 @@ export default function App() {
       { id: tasks.length + 1, name: newTaskName, done: false },
     ]);
     setNewTaskName("");
+  };
+
+  const clearCompleted = () => {
+    setTasks((tasks) => tasks.filter((task) => !task.done));
   };
 
   return (
@@ -164,15 +169,7 @@ export default function App() {
             );
           })}
         </List>
-
-        <Divider
-          sx={{
-            paddingTop: 5,
-          }}
-        />
-        <Typography variant="subtitle2" color="grey.A700" align="center" mt={1}>
-          Made with love in MightyMeld
-        </Typography>
+        <Footer />
       </Box>
     </ThemeProvider>
   );
