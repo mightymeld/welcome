@@ -14,6 +14,14 @@ export const appTheme = createTheme({
       fontSize: 20,
       fontWeight: 500,
     },
+    subtitle1: {
+      fontSize: 16,
+      fontWeight: 500,
+    },
+    subtitle2: {
+      fontSize: 12,
+      fontWeight: 500,
+    },
   },
   palette: {
     mode: "light",
