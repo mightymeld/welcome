@@ -83,7 +83,7 @@ export default function App() {
             Add
           </Button>
         </Stack>
-        <Box pt={10} pb={1}>
+        <Stack pt={10} pb={1} direction="row" justifyContent="space-between">
           <ToggleButtonGroup
             color="primary"
             size="small"
@@ -123,8 +123,7 @@ export default function App() {
               Done
             </ToggleButton>
           </ToggleButtonGroup>
-        </Box>
-
+        </Stack>
         <List>
           {tasks.map((task) => {
             const labelId = `checkbox-list-label-${task.id}`;
