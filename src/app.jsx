@@ -15,6 +15,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
+  Divider,
 } from "@mui/material";
 import { appTheme } from "./theme";
 import TASKS from "./tasks.json";
@@ -25,7 +26,6 @@ export default function App() {
   const [filter, setFilter] = useState("all");
 
   const toggleDone = (id) => {
-    console.log(id);
     setTasks((tasks) =>
       tasks.map((task) =>
         task.id === id ? { ...task, done: !task.done } : task,
@@ -165,6 +165,15 @@ export default function App() {
             );
           })}
         </List>
+
+        <Divider
+          sx={{
+            paddingTop: 5,
+          }}
+        />
+        <Typography variant="subtitle2" color="grey.A700" align="center" mt={1}>
+          Made with love in MightyMeld
+        </Typography>
       </Box>
     </ThemeProvider>
   );
