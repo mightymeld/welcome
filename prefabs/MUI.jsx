@@ -99,7 +99,7 @@ export const _Autocomplete = () => (
   />
 );
 
-export const _Button = () => <Button>Button</Button>;
+export const _Button = () => <Button variant="text">Button</Button>;
 
 export const _ButtonGroup = () => (
   <ButtonGroup variant="contained" aria-label="outlined primary button group">
