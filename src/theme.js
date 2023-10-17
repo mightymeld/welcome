@@ -84,5 +84,10 @@ export const instructionsTheme = createTheme({
         },
       },
     },
+    MuiLink: {
+      defaultProps: {
+        color: "text.primary",
+      },
+    },
   },
 });

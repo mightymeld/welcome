@@ -15,7 +15,6 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-  Divider,
 } from "@mui/material";
 import { appTheme } from "./theme";
 import TASKS from "./tasks.json";

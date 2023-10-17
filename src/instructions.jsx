@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useMatches } from "react-router-dom";
+import { Link as RouterLink, useMatches } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import {
   Alert,
   Box,
   Button,
   Container,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
@@ -25,6 +26,7 @@ export const steps = [
   Step6,
   Step7,
   Step8,
+  Step9,
 ];
 
 function Instructions({ fullPage, children }) {
@@ -79,7 +81,7 @@ function Instructions({ fullPage, children }) {
         </Box>
         {prevPath && (
           <Button
-            component={Link}
+            component={RouterLink}
             size="small"
             sx={{
               position: "absolute",
@@ -93,7 +95,7 @@ function Instructions({ fullPage, children }) {
         )}
         {nextPath && (
           <Button
-            component={Link}
+            component={RouterLink}
             size="small"
             sx={{
               position: "absolute",
@@ -166,7 +168,7 @@ function Step0() {
               when you’re ready.
             </Typography>
             <Box>
-              <Button component={Link} to="/step/1">
+              <Button component={RouterLink} to="/step/1">
                 Continue →
               </Button>
             </Box>
@@ -444,6 +446,30 @@ function Step8() {
         }}
         width="100%"
       />
+    </Instructions>
+  );
+}
+
+function Step9() {
+  return (
+    <Instructions>
+      <Typography variant="h5" mb={3}>
+        You did it!
+      </Typography>
+      <Typography variant="body2" my={3}>
+        Congrats on completing this fully functional to-do app! Here’s some
+        ideas on what to try next:
+      </Typography>
+      <Typography variant="body2" my={3}>
+        <Link href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start">
+          Set up your own project →
+        </Link>
+      </Typography>
+      <Typography variant="body2" my={3}>
+        <Link href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects">
+          Try a sample project →
+        </Link>
+      </Typography>
     </Instructions>
   );
 }
