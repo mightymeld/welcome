@@ -95,7 +95,11 @@ function Instructions({ fullPage, children }) {
           <Button
             component={Link}
             size="small"
-            sx={{ position: "absolute", bottom: 20, right: 15 }}
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              right: 15,
+            }}
             to={nextPath}
           >
             Next →
