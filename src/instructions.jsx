@@ -6,7 +6,6 @@ import {
   Box,
   Button,
   Container,
-  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -201,13 +200,13 @@ function Step2() {
         that smaller.
       </Typography>
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> Switch to edit mode and select the
-        <code>&lt;Box&gt;</code> surrounding the filter. Change <code>pt</code>{" "}
-        from <code>10</code> to <code>4</code>.
+        <strong>Your task:</strong> Switch to edit mode and select the{" "}
+        <code>&lt;Stack&gt;</code> surrounding the filter. Change{" "}
+        <code>pt</code> from <code>10</code> to <code>4</code>.
       </Typography>
       <Alert severity="info">
-        If you see <code>&lt;App&gt;</code> instead of <code>&lt;Box&gt;</code>,
-        try double-clicking
+        If you see <code>&lt;App&gt;</code> instead of{" "}
+        <code>&lt;Stack&gt;</code>, try double-clicking.
       </Alert>
       <Box
         component="img"
@@ -288,6 +287,9 @@ function Step3() {
         3. <strong>Paste</strong> the code before the line with{" "}
         <code>const labelId</code>, and <strong>save the file</strong>.
       </Typography>
+      <Typography variant="body2" my={3}>
+        The filters should now work!
+      </Typography>
     </Instructions>
   );
 }
@@ -351,6 +353,7 @@ function Step5() {
         src="/canvas-down.gif"
         sx={{
           border: 1,
+          marginBottom: 3,
         }}
         width="100%"
       />
