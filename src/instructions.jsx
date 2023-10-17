@@ -126,7 +126,7 @@ function Step0() {
       angle: -90,
       origin: { x: 0.5, y: -0.5 },
       ticks: 110,
-      colors: ["#582AB9"],
+      colors: ["#FF0", "#FAA", "#FFF"],
     });
   };
 
