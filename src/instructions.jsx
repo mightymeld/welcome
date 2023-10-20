@@ -347,32 +347,27 @@ function Step5() {
         you can change which component is shown in the layer tree.
       </Typography>
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> Navigate between the{" "}
-        <code>&lt;App&gt;</code> and <code>&lt;Footer&gt;</code> components.
+        <strong>Your task:</strong> play with changing the active component.
       </Typography>
       <Typography variant="body2" my={3}>
-        1. <strong>Double-click</strong> to go down the tree.
-      </Typography>
-      <Typography variant="body2" my={3}>
-        2. <strong>Click the arrow</strong> to go up.
+        1. <strong>Click the arrow</strong> to go up.
       </Typography>
       <Box
         component="img"
-        src="/up-down.gif"
+        src="/component-up.gif"
         sx={{
           border: 1,
         }}
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        3. You can also <strong>double-click on the canvas</strong> to go down.
+        2. <strong>Double-click</strong> to go down the tree.
       </Typography>
       <Box
         component="img"
-        src="/canvas-down.gif"
+        src="/component-down.gif"
         sx={{
           border: 1,
-          marginBottom: 3,
         }}
         width="100%"
       />
@@ -398,7 +393,16 @@ function Step6() {
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        2. <strong>Drag</strong> a <code>&lt;Button&gt;</code> into the{" "}
+        2. Make sure the App component is active.
+      </Typography>
+      <Box
+        component="img"
+        src="/app-active.png"
+        sx={{ border: 1 }}
+        width="100%"
+      />
+      <Typography variant="body2" my={3}>
+        3. <strong>Drag</strong> a <code>&lt;Button&gt;</code> into the{" "}
         <code>&lt;Stack&gt;</code>.
       </Typography>
       <Box

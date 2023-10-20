@@ -14,11 +14,11 @@ import {
   TextField,
   ToggleButton,
   ToggleButtonGroup,
-  Typography,
 } from "@mui/material";
 import { appTheme } from "./theme";
 import TASKS from "./tasks.json";
 import { Footer } from "./footer";
+import { Header } from "./header";
 
 export default function App() {
   const [tasks, setTasks] = useState(TASKS);
@@ -56,19 +56,15 @@ export default function App() {
           padding: 5,
         }}
       >
-        <Typography
-          variant="h1"
-          mb={3}
-          color="text.secondary"
-          align="center"
+        <Header />
+
+        <Box
           sx={{
-            fontFamily:
-              "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 2,
           }}
         >
-          My Tasks
-        </Typography>
-        <Stack direction="row" spacing={2}>
           <TextField
             variant="filled"
             size="small"
@@ -86,7 +82,7 @@ export default function App() {
           <Button variant="contained" onClick={() => addTask()}>
             Add
           </Button>
-        </Stack>
+        </Box>
         <Stack pt={10} pb={1} direction="row" justifyContent="space-between">
           <ToggleButtonGroup
             color="primary"
