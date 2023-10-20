@@ -133,12 +133,13 @@ export default function App() {
             const labelId = `checkbox-list-label-${task.id}`;
             return (
               <Paper
+                key={task.id}
                 elevation={0}
                 sx={{
                   marginBottom: 1,
                 }}
               >
-                <ListItem key={task.id} disablePadding>
+                <ListItem disablePadding>
                   <ListItemButton
                     onClick={() => toggleDone(task.id)}
                     disableRipple
