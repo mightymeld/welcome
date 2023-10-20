@@ -2,28 +2,16 @@
 
 Start here to learn how about MightyMeld.
 
-## Getting Started
+## Editing the app with MightyMeld
 
-1. Run `yarn` or `npm install` to install depenendencies.
+1. Run `npm install` to install depenendencies.
 
-2. Copy `.env.template` to `.env` and add your MightyMeld secret and instance ID. If you don’t have an instance ID, [sign up for MightyMeld](https://www.mightymeld.com) or join the waitlist and you will receive one.
+2. Download a mightymeld.secrets file from the [MightyMeld Portal](https://mightymeld.app/instances) and place it in your project root 
 
-3. Launch the app using `npx mightymeld`.
+3. Run `npx mightymeld` to launch MightyMeld studio in a browser tab.
 
-4. Once the app has loaded, visit [studio.mightymeld.app](https://studio.mightymeld.app/) to begin editing your app.
-
-## Troubleshooting
-
-### Running the app without MightyMeld
-
-With npm
+## Running the app without MightyMeld
 
 1. Type `npm install` to install dependencies.
 
-2. Run `npm run dev`, the app should then appear in a browser tab on [localhost:4444](localhost:4444)
-
-With yarn
-
-1. Type `yarn` to install dependencies.
-
-2. Run `yarn dev`, the app should then appear in a browser tab on [localhost:4444](localhost:4444)
+2. Run `npm run dev`, the app should then appear in a browser tab on [localhost:5173](localhost:5173)
