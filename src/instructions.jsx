@@ -206,21 +206,33 @@ function Step2() {
         that smaller.
       </Typography>
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> Switch to edit mode and select the{" "}
-        <code>&lt;Stack&gt;</code> surrounding the filter. Change{" "}
-        <code>pt</code> from <code>10</code> to <code>4</code>.
+        1. <strong>Switch to edit mode</strong> and <strong>select</strong> the{" "}
+        <code>&lt;Stack&gt;</code> surrounding the filter.
       </Typography>
-      <Alert severity="info">
-        If you see <code>&lt;App&gt;</code> instead of{" "}
-        <code>&lt;Stack&gt;</code>, try double-clicking.
-      </Alert>
       <Box
         component="img"
-        src="/selected-filter.png"
+        src="/select-filter-stack.gif"
         sx={{
           maxWidth: "100%",
           height: "auto",
-          marginTop: 4,
+          border: 1,
+          marginBottom: 1,
+        }}
+      />
+      <Alert severity="info">
+        If you select <code>&lt;App&gt;</code> instead of{" "}
+        <code>&lt;Stack&gt;</code>, double-click.
+      </Alert>
+      <Typography variant="body2" my={3}>
+        2. <strong>Change the prop</strong> <code>pt</code> (padding top) from{" "}
+        <code>10</code> to <code>4</code>.
+      </Typography>
+      <Box
+        component="img"
+        src="/change-pt.gif"
+        sx={{
+          maxWidth: "100%",
+          height: "auto",
           border: 1,
         }}
       />
