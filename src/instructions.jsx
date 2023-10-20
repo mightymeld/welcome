@@ -186,10 +186,11 @@ function Step1() {
         Step 1: Play with the app
       </Typography>
       <Typography variant="body2" my={3}>
-        On the right you’ll see a to-do app. Let’s play with it a bit.
+        On the right you’ll see a partially built to-do app. Let’s play with it
+        a bit.
       </Typography>
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> Add a new to-do called “Buy groceries”
+        <strong>Your task:</strong> Add a new to-do called “Buy groceries.”
       </Typography>
     </Instructions>
   );
@@ -252,7 +253,7 @@ function Step3() {
         You may have noticed the filter doesn’t do anything. Let’s fix that!
       </Typography>
       <Typography variant="body2" my={3}>
-        1. <strong>Copy</strong> this code.{" "}
+        1. In drive mode, <strong>copy</strong> this code.
       </Typography>
       <Box sx={{ position: "relative" }}>
         <TextField
@@ -289,12 +290,12 @@ function Step3() {
         </Button>
       </Box>
       <Typography variant="body2" my={3}>
-        2. <strong>Right-click</strong> the <code>&lt;List&gt;</code> to open
-        the relevent file in your editor.
+        2. In edit mode, <strong>right-click</strong> one of the list items and
+        choose <strong>Open in Editor</strong>.
       </Typography>
       <Box
         component="img"
-        src="/open-in-editor.png"
+        src="/editor-paste.gif"
         border={1}
         sx={{
           maxWidth: "100%",
@@ -339,11 +340,11 @@ function Step5() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 5: Component Tree
+        Step 5: Active Component
       </Typography>
       <Typography variant="body2" my={3}>
         So far we’ve been working in the <code>&lt;App&gt;</code> component, but
-        you can change which component is shown in the left panel.
+        you can change which component is shown in the layer tree.
       </Typography>
       <Typography variant="body2" my={3}>
         <strong>Your task:</strong> Navigate between the{" "}
