@@ -65,7 +65,6 @@ export default function App() {
           }}
         >
           <Header />
-
           <Box
             sx={{
               display: "flex",
@@ -134,12 +133,6 @@ export default function App() {
           </Stack>
           <List>
             {tasks.map((task) => {
-              if (
-                (filter === "active" && task.done) ||
-                (filter === "done" && !task.done)
-              ) {
-                return null;
-              }
               const labelId = `checkbox-list-label-${task.id}`;
               return (
                 <Paper
