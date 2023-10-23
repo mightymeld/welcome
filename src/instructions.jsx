@@ -57,6 +57,7 @@ function Instructions({ fullPage, children }) {
   return (
     <ThemeProvider theme={instructionsTheme}>
       <Box
+        data-mm-ignore-tree
         sx={{
           position: "fixed",
           top: 0,
@@ -81,6 +82,7 @@ function Instructions({ fullPage, children }) {
         </Box>
         {prevPath && (
           <Button
+            data-mm-always-click
             component={RouterLink}
             size="small"
             sx={{
@@ -95,6 +97,7 @@ function Instructions({ fullPage, children }) {
         )}
         {nextPath && (
           <Button
+            data-mm-always-click
             component={RouterLink}
             size="small"
             sx={{
@@ -277,6 +280,7 @@ function Step3() {
           }}
         />
         <Button
+          data-mm-always-click
           size="small"
           onClick={() => copy(exampleCode)}
           sx={{
@@ -347,7 +351,7 @@ function Step5() {
         be <code>&lt;App&gt;</code>.
       </Typography>
       <Typography variant="body2" my={3}>
-        2. <strong>Double-click</strong> <code>&lt;Header&gt;</code> to make it
+        1. <strong>Double-click</strong> <code>&lt;Header&gt;</code> to make it
         active.
       </Typography>
       <Box
@@ -359,7 +363,7 @@ function Step5() {
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        1. <strong>Click the arrow</strong> to back up to{" "}
+        2. <strong>Click the arrow</strong> to back up to{" "}
         <code>&lt;App&gt;</code>.
       </Typography>
       <Box
@@ -477,6 +481,7 @@ function Step9() {
       </Typography>
       <Typography variant="body2" my={3}>
         <Link
+          data-mm-always-click
           href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start"
           target="_blank"
         >
@@ -485,6 +490,7 @@ function Step9() {
       </Typography>
       <Typography variant="body2" my={3}>
         <Link
+          data-mm-always-click
           href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects"
           target="_blank"
         >
