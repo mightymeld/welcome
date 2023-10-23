@@ -423,12 +423,20 @@ function Step7() {
       <Typography variant="body2" my={3}>
         1. <strong>Select</strong> the button’s text node.
       </Typography>
+      <Box
+        component="img"
+        src="/select-text-node.gif"
+        sx={{
+          border: 1,
+        }}
+        width="100%"
+      />
       <Typography variant="body2" my={3}>
         2. <strong>Rename</strong> the label to “Clear”.
       </Typography>
       <Box
         component="img"
-        src="/rename-button.gif"
+        src="/edit-text-node.gif"
         sx={{
           border: 1,
         }}
