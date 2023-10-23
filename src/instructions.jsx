@@ -478,12 +478,18 @@ function Step9() {
         ideas on what to try next:
       </Typography>
       <Typography variant="body2" my={3}>
-        <Link href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start">
+        <Link
+          href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start"
+          target="_blank"
+        >
           Set up your own project →
         </Link>
       </Typography>
       <Typography variant="body2" my={3}>
-        <Link href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects">
+        <Link
+          href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects"
+          target="_blank"
+        >
           Try a sample project →
         </Link>
       </Typography>
