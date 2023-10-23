@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Step from "./step";
+import App from "./app";
 import "./index.css";
 
 export const routes = [
   {
     path: "/",
-    element: <Step />,
+    element: <App />,
   },
   {
     path: "/step/:step",
-    element: <Step />,
+    element: <App />,
   },
 ];
 
