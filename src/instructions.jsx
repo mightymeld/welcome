@@ -392,15 +392,6 @@ function Step6() {
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        2. Make sure the App component is active.
-      </Typography>
-      <Box
-        component="img"
-        src="/app-active.png"
-        sx={{ border: 1 }}
-        width="100%"
-      />
-      <Typography variant="body2" my={3}>
         3. <strong>Drag</strong> a <code>&lt;Button&gt;</code> into the{" "}
         <code>&lt;Stack&gt;</code>.
       </Typography>
