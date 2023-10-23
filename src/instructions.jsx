@@ -343,29 +343,28 @@ function Step5() {
         Step 5: Active Component
       </Typography>
       <Typography variant="body2" my={3}>
-        So far we’ve been working in the <code>&lt;App&gt;</code> component, but
-        you can change which component is shown in the layer tree.
+        MightyMeld shows one active component at a time. Right now that should
+        be <code>&lt;App&gt;</code>.
       </Typography>
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> play with changing the active component.
-      </Typography>
-      <Typography variant="body2" my={3}>
-        1. <strong>Click the arrow</strong> to go up.
+        2. <strong>Double-click</strong> <code>&lt;Header&gt;</code> to make it
+        active.
       </Typography>
       <Box
         component="img"
-        src="/component-up.gif"
+        src="/component-down.gif"
         sx={{
           border: 1,
         }}
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        2. <strong>Double-click</strong> to go down the tree.
+        1. <strong>Click the arrow</strong> to back up to{" "}
+        <code>&lt;App&gt;</code>.
       </Typography>
       <Box
         component="img"
-        src="/component-down.gif"
+        src="/component-up.gif"
         sx={{
           border: 1,
         }}
