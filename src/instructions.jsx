@@ -82,7 +82,7 @@ function Instructions({ fullPage, children }) {
         </Box>
         {prevPath && (
           <Button
-            data-mm-always-click
+            data-mm-tutorial-click
             component={RouterLink}
             size="small"
             sx={{
@@ -97,7 +97,7 @@ function Instructions({ fullPage, children }) {
         )}
         {nextPath && (
           <Button
-            data-mm-always-click
+            data-mm-tutorial-click
             component={RouterLink}
             size="small"
             sx={{
@@ -280,7 +280,7 @@ function Step3() {
           }}
         />
         <Button
-          data-mm-always-click
+          data-mm-tutorial-click
           size="small"
           onClick={() => copy(exampleCode)}
           sx={{
@@ -481,7 +481,7 @@ function Step9() {
       </Typography>
       <Typography variant="body2" my={3}>
         <Link
-          data-mm-always-click
+          data-mm-tutorial-click
           href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start"
           target="_blank"
         >
@@ -490,7 +490,7 @@ function Step9() {
       </Typography>
       <Typography variant="body2" my={3}>
         <Link
-          data-mm-always-click
+          data-mm-tutorial-click
           href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects"
           target="_blank"
         >
