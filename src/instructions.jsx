@@ -1,16 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link as RouterLink, useMatches } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import {
-  Alert,
-  Box,
-  Button,
-  Container,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
-import confetti from "canvas-confetti";
+import { Box, Button, Link, TextField, Typography } from "@mui/material";
 import copy from "copy-to-clipboard";
 import { instructionsTheme } from "./theme";
 
@@ -60,7 +51,7 @@ function Instructions({ fullPage, children }) {
           position: "fixed",
           top: 0,
           left: 0,
-          width: fullPage ? "100%" : WIDTH,
+          width: WIDTH,
         }}
       >
         <Box
@@ -69,7 +60,7 @@ function Instructions({ fullPage, children }) {
             backgroundColor: "#19163E",
             color: "#D5D5E3",
             borderWidth: 0,
-            borderRightWidth: fullPage ? "0" : "1px",
+            borderRightWidth: "1px",
             boxSizing: "border-box",
             padding: 2,
             paddingBottom: 6,
@@ -192,7 +183,7 @@ function Step2() {
       </Typography>
       <Box
         component="img"
-        src="/select-filter-stack.gif"
+        src="/edit-mode-select-filter-stack.gif"
         sx={{
           maxWidth: "100%",
           height: "auto",
@@ -200,10 +191,6 @@ function Step2() {
           marginBottom: 1,
         }}
       />
-      <Alert severity="info">
-        If you select <code>&lt;App&gt;</code> instead of{" "}
-        <code>&lt;Stack&gt;</code>, double-click.
-      </Alert>
       <Typography variant="body2" my={3}>
         2. <strong>Change the prop</strong> <code>pt</code> (padding top) from{" "}
         <code>10</code> to <code>4</code>.
@@ -288,7 +275,8 @@ function Step3() {
         <code>const labelId</code>, and <strong>save the file</strong>.
       </Typography>
       <Typography variant="body2" my={3}>
-        The filters should now work!
+        4. <strong>Switch to Drive mode</strong> and test the filters. They
+        should now work!
       </Typography>
     </Instructions>
   );

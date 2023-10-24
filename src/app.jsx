@@ -90,7 +90,13 @@ export default function App() {
               Add
             </Button>
           </Box>
-          <Stack pt={10} pb={1} direction="row" justifyContent="space-between">
+          <Stack
+            pt={10}
+            pb={1}
+            direction="row"
+            justifyContent="space-between"
+            mb={10}
+          >
             <ToggleButtonGroup
               color="primary"
               size="small"
