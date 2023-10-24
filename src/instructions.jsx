@@ -44,13 +44,11 @@ function Instructions({ fullPage, children }) {
   let prevPath = null;
   let nextPath = null;
 
-  if (step === 1) {
-    prevPath = "/";
-  } else if (step > 1) {
+  if (step > 0) {
     prevPath = `/step/${step - 1}`;
   }
 
-  if (step > 0 && step < steps.length - 1) {
+  if (step < steps.length - 1) {
     nextPath = `/step/${step + 1}`;
   }
 
@@ -120,64 +118,31 @@ Instructions.defaultProps = {
 };
 
 function Step0() {
-  const [clicked, setClicked] = useState(false);
-
-  const click = () => {
-    setClicked(true);
-    confetti({
-      particleCount: 150,
-      startVelocity: 60,
-      spread: 60,
-      angle: -90,
-      origin: { x: 0.5, y: -0.5 },
-      ticks: 110,
-      colors: ["#FF0", "#FAA", "#FFF"],
-    });
-  };
-
   return (
-    <Instructions fullPage>
-      <Container maxWidth="sm">
-        <Typography variant="h1" mt={8}>
-          Welcome
-        </Typography>
-        <Typography variant="body1" my={1}>
-          This app teaches you how to use MightyMeld.
-        </Typography>
-        <Typography variant="body1" mt={6} mb={1}>
-          1. <strong>Click “Drive”</strong> in the toolbar
-        </Typography>
-        <Box
-          sx={{
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-          component="img"
-          src="/test-drive.gif"
-          width="100%"
-          alt="Clicking test drive toggle button"
-          border={1}
-        />
-        <Typography variant="body1" mt={4} mb={1}>
-          2. <strong>Click</strong> this button.
-        </Typography>
-        <Box>
-          <Button onClick={click}>Click me</Button>
-        </Box>
-        {clicked && (
-          <>
-            <Typography variant="body1" mt={4} mb={1}>
-              You clicked the button! Feel free to play with Drive, and continue
-              when you’re ready.
-            </Typography>
-            <Box>
-              <Button component={RouterLink} to="/step/1">
-                Continue →
-              </Button>
-            </Box>
-          </>
-        )}
-      </Container>
+    <Instructions>
+      <Typography variant="h4" mb={3}>
+        Welcome!
+      </Typography>
+      <Typography variant="body2" my={3}>
+        This app teaches you how to use MightyMeld.
+      </Typography>
+      <Typography variant="body2" my={3}>
+        On the right you’ll see a partially build to-do app. Let’s start by{" "}
+        <strong>clicking</strong> on various parts of it.
+      </Typography>
+      <Box
+        component="img"
+        src="/selecting-things.gif"
+        sx={{ border: 1 }}
+        width="100%"
+      />
+      <Typography variant="body2" my={3}>
+        Notice how the left and right panels change in response to what you
+        select.
+      </Typography>
+      <Typography variant="body2" mt={6}>
+        Click <strong>Next →</strong> to go to the next step.
+      </Typography>
     </Instructions>
   );
 }
@@ -186,15 +151,27 @@ function Step1() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 1: Play with the app
+        Step 1: Drive mode
       </Typography>
       <Typography variant="body2" my={3}>
-        On the right you’ll see a partially built to-do app. Let’s play with it
-        a bit.
+        1. Switch to <strong>Drive</strong> mode in order to interact with the
+        to-do app.
       </Typography>
+      <Box
+        component="img"
+        src="/drive-mode.gif"
+        sx={{ border: 1 }}
+        width="100%"
+      />
       <Typography variant="body2" my={3}>
-        <strong>Your task:</strong> Add a new to-do called “Buy groceries.”
+        2. <strong>Add</strong> a new to-do called “Buy groceries.”
       </Typography>
+      <Box
+        component="img"
+        src="/add-task.gif"
+        sx={{ border: 1 }}
+        width="100%"
+      />
     </Instructions>
   );
 }
