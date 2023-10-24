@@ -27,7 +27,6 @@ import {
   List,
   ListItem,
   MenuItem,
-  Radio,
   Rating,
   Select,
   Slider,
@@ -43,11 +42,93 @@ import {
 // Icons
 import { Add } from "@mui/icons-material";
 
-/* Layout
-   ------ */
+export const _Alert = () => <Alert severity="warning">Alert</Alert>;
+
+export const _Alert_with_title = () => (
+  <Alert severity="warning">
+    <AlertTitle>Title</AlertTitle>
+    Description
+  </Alert>
+);
+
+export const _Autocomplete = () => (
+  <Autocomplete
+    id="free-solo-demo"
+    freeSolo
+    options={["One", "Two", "Three"]}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        label="enter text"
+        margin="normal"
+        variant="outlined"
+        sx={{ backgroundColor: "white" }}
+      />
+    )}
+  />
+);
+
+export const _Avatar = () => <Avatar>Aa</Avatar>;
+
+export const _Avatar_image = () => (
+  <Avatar alt="Jay Doe" src="https://randomuser.me/api/portraits/lego/5.jpg" />
+);
+
+export const _Backdrop = () => <Backdrop open />;
+
+export const _Badge = () => (
+  <Badge color="secondary" badgeContent={1}>
+    <Box
+      component="span"
+      sx={{ width: 30, height: 30, background: "gray" }}
+    ></Box>
+  </Badge>
+);
+
 export const _Box = () => <Box />;
 
+export const _Button = () => <Button variant="text">Click me</Button>;
+
+export const _ButtonGroup = () => (
+  <ButtonGroup variant="contained" aria-label="outlined primary button group">
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </ButtonGroup>
+);
+
+export const _Checkbox = () => <Checkbox />;
+
+export const _Chip = () => <Chip label="Chip" />;
+
 export const _Container = () => <Container />;
+
+export const _Dialog = () => (
+  <Dialog
+    open={false}
+    aria-labelledby="alert-dialog-title"
+    aria-describedby="alert-dialog-description"
+  >
+    <DialogTitle id="alert-dialog-title">Title</DialogTitle>
+    <DialogContent>
+      <DialogContentText id="alert-dialog-description">
+        Description
+      </DialogContentText>
+    </DialogContent>
+    <DialogActions>
+      <Button>Disagree</Button>
+      <Button autoFocus>Agree</Button>
+    </DialogActions>
+  </Dialog>
+);
+
+export const _Divider = () => <Divider />;
+
+export const _Fab = () => (
+  <Fab color="primary" aria-label="add">
+    <Add />
+  </Fab>
+);
 
 export const _Grid = () => (
   <Grid container>
@@ -55,8 +136,6 @@ export const _Grid = () => (
     <Grid item />
   </Grid>
 );
-
-export const _Stack = () => <Stack />;
 
 export const _ImageList = () => (
   <ImageList>
@@ -79,56 +158,12 @@ export const _ImageList = () => (
   </ImageList>
 );
 
-/* Inputs
-   ------ */
-
-export const _Autocomplete = () => (
-  <Autocomplete
-    id="free-solo-demo"
-    freeSolo
-    options={["One", "Two", "Three"]}
-    renderInput={(params) => (
-      <TextField
-        {...params}
-        label="enter text"
-        margin="normal"
-        variant="outlined"
-        sx={{ backgroundColor: "white" }}
-      />
-    )}
-  />
-);
-
-export const _Button = () => <Button variant="text">Click me</Button>;
-
-export const _ButtonGroup = () => (
-  <ButtonGroup variant="contained" aria-label="outlined primary button group">
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </ButtonGroup>
-);
-
-export const _Checkbox = () => <Checkbox />;
-
-/* Disabled because Checkbox is not imported
-export const _Checkbox_with_label = () => (
-  <FormControlLabel control={<Checkbox />} label="Checkbox" />
-)
-*/
-
-export const _Radio = () => <Radio />;
-
-/* Disabled because Radio is not imported
-export const _Radio_with_label = () => (
-  <FormControlLabel control={<Radio />} label="Radio" />
-)
-*/
-
-export const _Fab = () => (
-  <Fab color="primary" aria-label="add">
-    <Add />
-  </Fab>
+export const _List = () => (
+  <List>
+    <ListItem>One</ListItem>
+    <ListItem>Two</ListItem>
+    <ListItem>Three</ListItem>
+  </List>
 );
 
 export const _Rating = () => {
@@ -148,6 +183,8 @@ export const _Select = () => (
 
 export const _Slider = () => <Slider />;
 
+export const _Stack = () => <Stack />;
+
 export const _Switch = () => <Switch />;
 
 export const _TextField = () => {
@@ -166,35 +203,6 @@ export const _ToggleButtonGroup = () => (
   </ToggleButtonGroup>
 );
 
-// Display Data
-
-export const _Avatar = () => <Avatar>Aa</Avatar>;
-
-export const _Avatar_image = () => (
-  <Avatar alt="Jay Doe" src="https://randomuser.me/api/portraits/lego/5.jpg" />
-);
-
-export const _Badge = () => (
-  <Badge color="secondary" badgeContent={1}>
-    <Box
-      component="span"
-      sx={{ width: 30, height: 30, background: "gray" }}
-    ></Box>
-  </Badge>
-);
-
-export const _Chip = () => <Chip label="Chip" />;
-
-export const _Divider = () => <Divider />;
-
-export const _List = () => (
-  <List>
-    <ListItem>One</ListItem>
-    <ListItem>Two</ListItem>
-    <ListItem>Three</ListItem>
-  </List>
-);
-
 export const _Tooltip = () => (
   <Tooltip title="Tooltip">
     <Box />
@@ -202,45 +210,15 @@ export const _Tooltip = () => (
 );
 
 export const _Typography = () => <Typography>Text</Typography>;
-export const _Typography_heading = () => (
-  <Typography variant="h1">Heading</Typography>
-);
-export const _Typography_subtitle = () => (
-  <Typography variant="subtitle1">Subtitle</Typography>
-);
+
 export const _Typography_body = () => (
   <Typography variant="body1">Body</Typography>
 );
 
-/* Feedback
-   -------- */
-
-export const _Alert = () => <Alert severity="warning">Alert</Alert>;
-
-export const _Alert_with_title = () => (
-  <Alert severity="warning">
-    <AlertTitle>Title</AlertTitle>
-    Description
-  </Alert>
+export const _Typography_heading = () => (
+  <Typography variant="h1">Heading</Typography>
 );
 
-export const _Backdrop = () => <Backdrop open />;
-
-export const _Dialog = () => (
-  <Dialog
-    open={false}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
-  >
-    <DialogTitle id="alert-dialog-title">Title</DialogTitle>
-    <DialogContent>
-      <DialogContentText id="alert-dialog-description">
-        Description
-      </DialogContentText>
-    </DialogContent>
-    <DialogActions>
-      <Button>Disagree</Button>
-      <Button autoFocus>Agree</Button>
-    </DialogActions>
-  </Dialog>
+export const _Typography_subtitle = () => (
+  <Typography variant="subtitle1">Subtitle</Typography>
 );
