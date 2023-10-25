@@ -220,7 +220,7 @@ function Step3() {
         You may have noticed the filter doesn’t do anything. Let’s fix that!
       </Typography>
       <Typography variant="body2" my={3}>
-        1. In drive mode, <strong>copy</strong> this code.
+        1. <strong>Copy</strong> this code.
       </Typography>
       <Box sx={{ position: "relative" }}>
         <TextField
@@ -258,8 +258,8 @@ function Step3() {
         </Button>
       </Box>
       <Typography variant="body2" my={3}>
-        2. In edit mode, <strong>right-click</strong> one of the list items and
-        choose <strong>Open in Editor</strong>.
+        2. <strong>Right-click</strong> one of the list items and choose{" "}
+        <strong>Open in Editor</strong>.
       </Typography>
       <Box
         component="img"
@@ -316,8 +316,8 @@ function Step5() {
         be <code>&lt;App&gt;</code>.
       </Typography>
       <Typography variant="body2" my={3}>
-        1. <strong>Double-click</strong> <code>&lt;Header&gt;</code> to make it
-        active.
+        1. In edit mode, <strong>double-click</strong>{" "}
+        <code>&lt;Header&gt;</code> to make it active.
       </Typography>
       <Box
         component="img"
