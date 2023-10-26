@@ -118,7 +118,7 @@ function Step0() {
         This app teaches you how to use MightyMeld.
       </Typography>
       <Typography variant="body2" my={3}>
-        On the right you’ll see a partially build to-do app. Let’s start by{" "}
+        On the right you’ll see a partially built to-do app. Let’s start by{" "}
         <strong>clicking</strong> on various parts of it.
       </Typography>
       <Box
