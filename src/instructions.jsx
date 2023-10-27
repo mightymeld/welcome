@@ -1,7 +1,14 @@
 import { useEffect } from "react";
 import { Link as RouterLink, useMatches } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 import copy from "copy-to-clipboard";
 import { instructionsTheme } from "./theme";
 
@@ -18,9 +25,10 @@ export const steps = [
   Step7,
   Step8,
   Step9,
+  Step10,
 ];
 
-function Instructions({ fullPage, children }) {
+function Instructions({ children, fullPage, showNav }) {
   useEffect(() => {
     document.body.style.marginLeft = `${WIDTH}px`;
 
@@ -35,12 +43,14 @@ function Instructions({ fullPage, children }) {
   let prevPath = null;
   let nextPath = null;
 
-  if (step > 0) {
-    prevPath = `/step/${step - 1}`;
-  }
+  if (showNav) {
+    if (step > 0) {
+      prevPath = `/step/${step - 1}`;
+    }
 
-  if (step < steps.length - 1) {
-    nextPath = `/step/${step + 1}`;
+    if (step < steps.length - 1) {
+      nextPath = `/step/${step + 1}`;
+    }
   }
 
   return (
@@ -51,7 +61,7 @@ function Instructions({ fullPage, children }) {
           position: "fixed",
           top: 0,
           left: 0,
-          width: WIDTH,
+          width: fullPage ? "100%" : WIDTH,
         }}
       >
         <Box
@@ -60,7 +70,7 @@ function Instructions({ fullPage, children }) {
             backgroundColor: "#19163E",
             color: "#D5D5E3",
             borderWidth: 0,
-            borderRightWidth: "1px",
+            borderRightWidth: fullPage ? "0" : "1px",
             boxSizing: "border-box",
             padding: 2,
             paddingBottom: 6,
@@ -106,16 +116,32 @@ function Instructions({ fullPage, children }) {
 
 Instructions.defaultProps = {
   fullPage: false,
+  showNav: true,
 };
 
 function Step0() {
   return (
+    <Instructions fullPage showNav={false}>
+      <Container maxWidth="sm">
+        <Typography variant="h1" mt={8}>
+          Welcome
+        </Typography>
+        <Typography variant="body1" my={3}>
+          This app teaches you how to use MightyMeld.
+        </Typography>
+        <Button data-mm-tutorial-click component={RouterLink} to="/step/1">
+          Begin Tutorial
+        </Button>
+      </Container>
+    </Instructions>
+  );
+}
+
+function Step1() {
+  return (
     <Instructions>
-      <Typography variant="h4" mb={3}>
-        Welcome!
-      </Typography>
-      <Typography variant="body2" my={3}>
-        This app teaches you how to use MightyMeld.
+      <Typography variant="h5" mb={3}>
+        Step 1: Selection
       </Typography>
       <Typography variant="body2" my={3}>
         On the right you’ll see a partially built to-do app. Let’s start by{" "}
@@ -131,18 +157,15 @@ function Step0() {
         Notice how the left and right panels change in response to what you
         select.
       </Typography>
-      <Typography variant="body2" mt={6}>
-        Click <strong>Next →</strong> to go to the next step.
-      </Typography>
     </Instructions>
   );
 }
 
-function Step1() {
+function Step2() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 1: Drive mode
+        Step 2: Drive mode
       </Typography>
       <Typography variant="body2" my={3}>
         1. Switch to <strong>Drive</strong> mode in order to interact with the
@@ -167,11 +190,11 @@ function Step1() {
   );
 }
 
-function Step2() {
+function Step3() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 2: Style Changes
+        Step 3: Style Changes
       </Typography>
       <Typography variant="body2" mt={3}>
         The spacing above the filter buttons is a little too large. Let’s make
@@ -208,13 +231,13 @@ function Step2() {
   );
 }
 
-function Step3() {
+function Step4() {
   const exampleCode = `if ((filter === "active" && task.done) || (filter === "done" && !task.done)) {\n  return null;\n}`;
 
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 3: Editing Code
+        Step 4: Editing Code
       </Typography>
       <Typography variant="body2" my={3}>
         You may have noticed the filter doesn’t do anything. Let’s fix that!
@@ -282,11 +305,11 @@ function Step3() {
   );
 }
 
-function Step4() {
+function Step5() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 4: Git Diff
+        Step 5: Git Diff
       </Typography>
       <Typography variant="body2" my={3}>
         Let’s see what changes we’ve made so far.
@@ -305,11 +328,11 @@ function Step4() {
   );
 }
 
-function Step5() {
+function Step6() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 5: Active Component
+        Step 6: Active Component
       </Typography>
       <Typography variant="body2" my={3}>
         MightyMeld shows one active component at a time. Right now that should
@@ -343,11 +366,11 @@ function Step5() {
   );
 }
 
-function Step6() {
+function Step7() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 6: Prefabs
+        Step 7: Prefabs
       </Typography>
       <Typography variant="body2" my={3}>
         1. <strong>Open the MUI prefabs </strong> from the library panel.
@@ -374,7 +397,7 @@ function Step6() {
   );
 }
 
-function Step7() {
+function Step8() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
@@ -406,11 +429,11 @@ function Step7() {
   );
 }
 
-function Step8() {
+function Step9() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>
-        Step 8: Adding props
+        Step 9: Adding props
       </Typography>
       <Typography variant="body2" my={3}>
         Let’s give some functionality to the “Clear” button.
@@ -434,7 +457,7 @@ function Step8() {
   );
 }
 
-function Step9() {
+function Step10() {
   return (
     <Instructions>
       <Typography variant="h5" mb={3}>

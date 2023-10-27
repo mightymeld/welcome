@@ -53,8 +53,9 @@ export default function App() {
     setTasks((tasks) => tasks.filter((task) => !task.done));
   };
 
-  return (
-    <>
+  const renderApp = () => {
+    if (step === 0) return null;
+    return (
       <ThemeProvider theme={appTheme}>
         <Box
           sx={{
@@ -175,6 +176,12 @@ export default function App() {
           <Footer />
         </Box>
       </ThemeProvider>
+    );
+  };
+
+  return (
+    <>
+      {renderApp()}
       <InstructionsForStep />
     </>
   );
