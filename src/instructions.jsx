@@ -351,7 +351,7 @@ function Step6() {
         width="100%"
       />
       <Typography variant="body2" my={3}>
-        2. <strong>Click the arrow</strong> to back up to{" "}
+        2. <strong>Click the arrow</strong> to go back up to{" "}
         <code>&lt;App&gt;</code>.
       </Typography>
       <Box
@@ -373,7 +373,8 @@ function Step7() {
         Step 7: Prefabs
       </Typography>
       <Typography variant="body2" my={3}>
-        1. <strong>Open the MUI prefabs </strong> from the library panel.
+        1. In edit mode, <strong>open the MUI prefabs </strong> from the library
+        panel.
       </Typography>
       <Box
         component="img"
@@ -453,6 +454,9 @@ function Step9() {
         }}
         width="100%"
       />
+      <Typography variant="body2" my={3}>
+        3. In Drive mode, <strong>click the Clear button</strong>.
+      </Typography>
     </Instructions>
   );
 }
