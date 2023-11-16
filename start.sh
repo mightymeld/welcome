@@ -1,5 +1,3 @@
-source .env
-
 if [ "$SANDBOX" = "glitch" ]; then
 
 	echo "Setting up for Glitch..."
