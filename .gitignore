@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 mightymeld.secrets
+mightymeld_override.json
