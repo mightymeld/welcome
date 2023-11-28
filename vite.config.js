@@ -19,6 +19,9 @@ if (process.env.MIGHTYMELD) {
 }
 
 export default defineConfig({
+  server: {
+    port: parseInt(process.env.PORT) || 4444,
+  },
   plugins: [
     react({
       babel: {

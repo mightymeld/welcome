@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port ${PORT:-4444}",
+    "dev": "vite",
     "start": "bash start.sh",
     "build": "vite build",
     "preview": "vite preview"
