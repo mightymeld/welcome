@@ -5,8 +5,7 @@ if [ "$SANDBOX" = "glitch" ]; then
 	# Write a config override with the correct Glitch project domain.
 	echo "{\"web_server_url\":\"https://$PROJECT_DOMAIN.glitch.me\"}" > mightymeld_override.json
 
-	# git commit -am 'Add changes on sandbox to keep diffs looking nice'
-
+	# Start envoy
   npx mightymeld
 
   # After envoy exits, let’s run a static server so Glitch won’t restart over and over if there is an error.
