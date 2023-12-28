@@ -3,5 +3,6 @@
   "include": ["src", "prefabs", ".prettierrc"],
   "web_server_url": "http://localhost:4444",
   "prefab_dir": "prefabs",
+  "tutorial_path": "/step/0",
   "run_prettier": true
 }
