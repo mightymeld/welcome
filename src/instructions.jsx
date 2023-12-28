@@ -28,7 +28,7 @@ export const steps = [
   Step10,
 ];
 
-function Instructions({ children, fullPage, showNav }) {
+function Instructions({ children, showNav }) {
   useEffect(() => {
     document.body.style.marginLeft = `${WIDTH}px`;
 
@@ -61,7 +61,7 @@ function Instructions({ children, fullPage, showNav }) {
           position: "fixed",
           top: 0,
           left: 0,
-          width: fullPage ? "100%" : WIDTH,
+          width: '300px'
         }}
       >
         <Box
@@ -70,7 +70,7 @@ function Instructions({ children, fullPage, showNav }) {
             backgroundColor: "#19163E",
             color: "#D5D5E3",
             borderWidth: 0,
-            borderRightWidth: fullPage ? "0" : "1px",
+            borderRightWidth: "1px",
             boxSizing: "border-box",
             padding: 2,
             paddingBottom: 6,
@@ -115,13 +115,12 @@ function Instructions({ children, fullPage, showNav }) {
 }
 
 Instructions.defaultProps = {
-  fullPage: false,
   showNav: true,
 };
 
 function Step0() {
   return (
-    <Instructions fullPage showNav={false}>
+    <Instructions showNav={false}>
       <Container maxWidth="sm">
         <Typography variant="h1" mt={8}>
           Welcome
