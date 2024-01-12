@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "Oracle";
   font-display: swap;
@@ -23,7 +27,7 @@
 body {
   margin: 0;
   padding: 0;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 strong {

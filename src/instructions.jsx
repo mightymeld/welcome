@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { Link, useMatches } from "react-router-dom";
-import { ThemeProvider } from "@mui/material/styles";
 import copy from "copy-to-clipboard";
-import { instructionsTheme } from "./theme";
 import "./style.css"
 
 const WIDTH = 300;
@@ -47,7 +45,7 @@ function Instructions({ children, showNav }) {
   }
 
   return (
-    <ThemeProvider theme={instructionsTheme}>
+    <>
       <div data-mm-ignore-tree className="fixed top-0 left-0 w-[300px] ">
         <div className="bg-[#19163E] text-[#D5D5E3] p-4 pb-0 h-screen border-0 border-r box-border overflow-auto " >
           {children}
@@ -68,7 +66,7 @@ function Instructions({ children, showNav }) {
           </Link>
         )}
       </div>
-    </ThemeProvider>
+    </>
   );
 }
 
