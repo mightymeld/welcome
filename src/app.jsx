@@ -43,6 +43,11 @@ export default function App() {
     setNewTaskName("");
   };
 
+  // Don’t remove this. A reference to it will be added by the user during the tutorial.
+  const clearCompleted = () => {
+    setTasks((tasks) => tasks.filter((task) => !task.done));
+  };
+
   return (
     <ThemeProvider theme={appTheme}>
       <Box
