@@ -43,7 +43,7 @@ export const instructionsTheme = createTheme({
     fontFamily: "Oracle, sans-serif",
     fontSize: 12,
     h1: {
-      fontSize: 60,
+      fontSize: 50,
       fontWeight: 500,
       letterSpacing: -1.5,
     },
