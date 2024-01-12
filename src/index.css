@@ -23,6 +23,7 @@
 body {
   margin: 0;
   padding: 0;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 strong {
@@ -40,4 +41,36 @@ code {
   padding: 2px 4px;
   border-radius: 3px;
   border: 1px solid #00000022;
+}
+
+.custom-checkbox:checked {
+  background-color: #17a5ea;
+  border-color: #17a5ea;
+}
+
+.custom-checkbox:checked:after {
+  content: '\2713';
+  color: white;
+  font-weight: 600;
+}
+
+.custom-checkbox {
+  accent-color: #17a5ea;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 18px !important;
+  height: 18px !important;
+  appearance: none;
+  border-radius: 10%;
+  border: 2px solid;
+  box-shadow: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-blue {
+  background: rgba(23, 165, 234, 0.08);
 }

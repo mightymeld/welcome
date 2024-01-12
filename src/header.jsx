@@ -1,17 +1,10 @@
-import { Typography } from "@mui/material";
 export const Header = () => {
   return (
-    <Typography
-      variant="h1"
-      mb={3}
-      color="text.secondary"
-      align="center"
-      sx={{
-        fontFamily:
-          "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+    <h1 className="text-center text-[40px]"
+      style={{
+        fontFamily: "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+        color: 'rgba(0, 0, 0, 0.6)',
       }}
-    >
-      My Tasks
-    </Typography>
+    > My Tasks</h1>
   );
 };

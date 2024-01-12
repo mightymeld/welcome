@@ -1,168 +1,76 @@
-import { useState } from "react";
-import { useMatches } from "react-router-dom";
-import { ThemeProvider } from "@mui/material/styles";
-import {
-  Box,
-  Button,
-  Checkbox,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Paper,
-  Stack,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "@mui/material";
-import { appTheme } from "./theme";
-import TASKS from "./tasks.json";
-import { Footer } from "./footer";
-import { Header } from "./header";
+import { useState } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import { appTheme } from './theme';
+import TASKS from './tasks.json';
+import { Footer } from './footer';
+import { Header } from './header';
 
 export default function App() {
-  const [tasks, setTasks] = useState(TASKS);
-  const [newTaskName, setNewTaskName] = useState("");
-  const [filter, setFilter] = useState("all");
+	const [tasks, setTasks] = useState(TASKS);
+	const [newTaskName, setNewTaskName] = useState('');
+	const [filter, setFilter] = useState('all');
 
-  const toggleDone = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task,
-      ),
-    );
-  };
+	const toggleDone = (id) => {
+		setTasks((tasks) =>
+			tasks.map((task) => (task.id === id ? { ...task, done: !task.done } : task))
+		);
+	};
 
-  const addTask = () => {
-    if (newTaskName === "") return;
-    setTasks((tasks) => [
-      ...tasks,
-      { id: tasks.length + 1, name: newTaskName, done: false },
-    ]);
-    setNewTaskName("");
-  };
+	const addTask = () => {
+		if (newTaskName === '') return;
+		setTasks((tasks) => [...tasks, { id: tasks.length + 1, name: newTaskName, done: false }]);
+		setNewTaskName('');
+	};
 
-  return (
-    <ThemeProvider theme={appTheme}>
-      <Box
-        sx={{
-          backgroundColor: "background.default",
-          minHeight: "100vh",
-          boxSizing: "border-box",
-          padding: 5,
-        }}
-      >
-        <Header />
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: 2,
-          }}
-        >
-          <TextField
-            variant="filled"
-            size="small"
-            label="What needs to be done?"
-            value={newTaskName}
-            onKeyDown={(e) => e.key === "Enter" && addTask()}
-            onChange={(e) => setNewTaskName(e.target.value)}
-            fullWidth
-            inputProps={{
-              sx: {
-                backgroundColor: "background.paper",
-              },
-            }}
-          />
-          <Button variant="contained" onClick={() => addTask()}>
-            Add
-          </Button>
-        </Box>
-        <Stack pt={10} pb={1} direction="row" justifyContent="space-between">
-          <ToggleButtonGroup
-            color="primary"
-            size="small"
-            value={filter}
-            exclusive
-            onChange={(e, f) => setFilter(f)}
-            aria-label="Filter"
-            sx={{
-              backgroundColor: "background.paper",
-            }}
-          >
-            <ToggleButton
-              disableRipple
-              value="all"
-              sx={{
-                px: 2,
-              }}
-            >
-              All
-            </ToggleButton>
-            <ToggleButton
-              disableRipple
-              value="active"
-              sx={{
-                px: 2,
-              }}
-            >
-              Active
-            </ToggleButton>
-            <ToggleButton
-              disableRipple
-              value="done"
-              sx={{
-                px: 2,
-              }}
-            >
-              Done
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Stack>
-        <List>
-          {tasks.map((task) => {
-            const labelId = `checkbox-list-label-${task.id}`;
-            return (
-              <Paper
-                key={task.id}
-                elevation={0}
-                sx={{
-                  marginBottom: 1,
-                }}
-              >
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => toggleDone(task.id)}
-                    disableRipple
-                    dense
-                  >
-                    <ListItemIcon>
-                      <Checkbox
-                        edge="start"
-                        checked={task.done}
-                        disableRipple
-                        inputProps={{
-                          "aria-labelledby": labelId,
-                        }}
-                      />
-                    </ListItemIcon>
-                    <ListItemText
-                      id={labelId}
-                      primary={task.name}
-                      sx={{
-                        color: "text.primary",
-                        textDecoration: task.done ? "line-through" : "none",
-                      }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              </Paper>
-            );
-          })}
-        </List>
-        <Footer />
-      </Box>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={appTheme}>
+			<div className="box-border min-h-screen bg-[#EEE] p-10">
+				<Header />
+				<div className="flex justify-between gap-4">
+					<div className="relative w-full bg-white">
+						<input type="text" id="filled_success" aria-describedby="filled_success_help" value={newTaskName} onKeyDown={(e) => e.key === 'Enter' && addTask()} onChange={(e) => setNewTaskName(e.target.value)}
+							className="block px-2.5 pb-2 pt-4 w-full text-md text-gray-900 bg-white border-0 border-b border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-[#17a5ea] peer" placeholder=" " />
+						<label htmlFor="filled_success" className="absolute text-md text-gray-600 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">What needs to be done?</label>
+					</div>
+					<button className="bg-[#17a5ea] rounded shadow-md py-2 px-4 text-white " onClick={() => addTask()}>Add</button>
+				</div>
+				<nav className="mt-8 mb-3 rounded inline-flex flex-row justify-between border bg-white divide-x">
+					{
+						["all", "active", "done"].map((item, i) => (
+							<button key={i}
+								className={`px-[17px] py-[9px] uppercase text-sm ${filter === item ? "background-blue text-[#17a5ea]" : ""}`}
+								onClick={() => setFilter(item)}
+							>
+								{item}
+							</button>
+						))
+					}
+				</nav>
+				<ul className="flex flex-col gap-2" >
+					{tasks.map((task) => {
+						const labelId = `checkbox-list-label-${task.id}`;
+						return (
+							<li key={task.id} className=" bg-white px-4 py-[15px] rounded-md hover:bg-neutral-100 ">
+								<div className="flex gap-7 items-center">
+									<input
+										type="checkbox"
+										checked={task.done}
+										onChange={() => toggleDone(task.id)}
+										className="mr-2 custom-checkbox"
+									/>
+									<label
+										htmlFor={labelId}
+										className={`text-sm ${task.done ? "line-through" : ""}`}
+									>
+										{task.name}
+									</label>
+								</div>
+							</li>
+						);
+					})}
+				</ul>
+				<Footer />
+			</div>
+		</ThemeProvider>
+	);
 }
