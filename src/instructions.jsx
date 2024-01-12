@@ -1,16 +1,7 @@
 import { useEffect } from "react";
-import { Link as RouterLink, useMatches } from "react-router-dom";
-import { ThemeProvider } from "@mui/material/styles";
-import {
-  Box,
-  Button,
-  Container,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Link, useMatches } from "react-router-dom";
 import copy from "copy-to-clipboard";
-import { instructionsTheme } from "./theme";
+import "./style.css"
 
 const WIDTH = 300;
 
@@ -28,7 +19,7 @@ export const steps = [
   Step10,
 ];
 
-function Instructions({ children, fullPage, showNav }) {
+function Instructions({ children, showNav }) {
   useEffect(() => {
     document.body.style.marginLeft = `${WIDTH}px`;
 
@@ -54,85 +45,51 @@ function Instructions({ children, fullPage, showNav }) {
   }
 
   return (
-    <ThemeProvider theme={instructionsTheme}>
-      <Box
-        data-mm-ignore-tree
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: fullPage ? "100%" : WIDTH,
-        }}
-      >
-        <Box
-          sx={{
-            height: "100vh",
-            backgroundColor: "#19163E",
-            color: "#D5D5E3",
-            borderWidth: 0,
-            borderRightWidth: fullPage ? "0" : "1px",
-            boxSizing: "border-box",
-            padding: 2,
-            paddingBottom: 6,
-            overflow: "auto",
-          }}
-        >
+    <>
+      <div data-mm-ignore-tree className="fixed top-0 left-0 w-[300px] ">
+        <div className="bg-[#19163E] text-[#D5D5E3] p-4 pb-0 h-screen border-0 border-r box-border overflow-auto " >
           {children}
-        </Box>
+        </div>
         {prevPath && (
-          <Button
-            data-mm-tutorial-click
-            component={RouterLink}
-            size="small"
-            sx={{
-              position: "absolute",
-              bottom: 20,
-              left: 15,
-            }}
-            to={prevPath}
-          >
-            ← Previous
-          </Button>
+          <Link to={prevPath}>
+            <button data-mm-tutorial-click className="absolute bottom-5 left-4 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
+              ← Previous
+            </button>
+          </Link>
+
         )}
         {nextPath && (
-          <Button
-            data-mm-tutorial-click
-            component={RouterLink}
-            size="small"
-            sx={{
-              position: "absolute",
-              bottom: 20,
-              right: 15,
-            }}
-            to={nextPath}
-          >
-            Next →
-          </Button>
+          <Link to={nextPath}>
+            <button data-mm-tutorial-click className="absolute bottom-5 right-4 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
+              Next →
+            </button>
+          </Link>
         )}
-      </Box>
-    </ThemeProvider>
+      </div>
+    </>
   );
 }
 
 Instructions.defaultProps = {
-  fullPage: false,
   showNav: true,
 };
 
 function Step0() {
   return (
-    <Instructions fullPage showNav={false}>
-      <Container maxWidth="sm">
-        <Typography variant="h1" mt={8}>
+    <Instructions showNav={false}>
+      <div className="max-w-[600px]">
+        <h1 className="mt-5 font-medium text-[58px] ">
           Welcome
-        </Typography>
-        <Typography variant="body1" my={3}>
+        </h1>
+        <p className="my-5 text-base font-medium ">
           This app teaches you how to use MightyMeld.
-        </Typography>
-        <Button data-mm-tutorial-click component={RouterLink} to="/step/1">
-          Begin Tutorial
-        </Button>
-      </Container>
+        </p>
+        <Link to="/step/1">
+          <button data-mm-tutorial-click className=" text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
+            Begin Tutorial
+          </button>
+        </Link>
+      </div>
     </Instructions>
   );
 }
@@ -140,23 +97,21 @@ function Step0() {
 function Step1() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 1: Selection
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-6 text-sm">
         On the right you’ll see a partially built to-do app. Let’s start by{" "}
         <strong>clicking</strong> on various parts of it.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/selecting-things.gif"
-        sx={{ border: 1 }}
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-6 text-sm">
         Notice how the left and right panels change in response to what you
         select.
-      </Typography>
+      </p>
     </Instructions>
   );
 }
@@ -164,26 +119,22 @@ function Step1() {
 function Step2() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 2: Drive mode
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-5 text-sm">
         1. Switch to <strong>Drive</strong> mode in order to interact with the
         to-do app.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/drive-mode.gif"
-        sx={{ border: 1 }}
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         2. <strong>Add</strong> a new to-do called “Buy groceries.”
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/add-task.gif"
-        sx={{ border: 1 }}
         width="100%"
       />
     </Instructions>
@@ -193,39 +144,26 @@ function Step2() {
 function Step3() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 3: Style Changes
-      </Typography>
-      <Typography variant="body2" mt={3}>
+      </h5>
+      <p className="mt-5 text-sm">
         The spacing above the filter buttons is a little too large. Let’s make
         that smaller.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="my-5 text-sm">
         1. <strong>Switch to edit mode</strong> and <strong>select</strong> the{" "}
-        <code>&lt;Stack&gt;</code> surrounding the filter.
-      </Typography>
-      <Box
-        component="img"
+        <code>&lt;nav&gt;</code> surrounding the filter.
+      </p>
+      <img className="border max-w-full h-auto mb-2"
         src="/edit-mode-select-filter-stack.gif"
-        sx={{
-          maxWidth: "100%",
-          height: "auto",
-          border: 1,
-          marginBottom: 1,
-        }}
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         2. <strong>Change the prop</strong> <code>pt</code> (padding top) from{" "}
         <code>10</code> to <code>4</code>.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border max-w-full h-auto"
         src="/change-pt.gif"
-        sx={{
-          maxWidth: "100%",
-          height: "auto",
-          border: 1,
-        }}
       />
     </Instructions>
   );
@@ -236,71 +174,36 @@ function Step4() {
 
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 4: Editing Code
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-5 text-sm">
         You may have noticed the filter doesn’t do anything. Let’s fix that!
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="my-5 text-sm">
         1. <strong>Copy</strong> this code.
-      </Typography>
-      <Box sx={{ position: "relative" }}>
-        <TextField
-          variant="standard"
-          fullWidth
-          multiline
-          rows={5}
-          defaultValue={exampleCode}
-          sx={{
-            backgroundColor: "background.paper",
-          }}
-          InputProps={{
-            disableUnderline: true,
-            readOnly: true,
-            sx: {
-              padding: 1,
-              fontFamily: "monospace",
-              color: "#000",
-              fontSize: 12,
-            },
-          }}
-        />
-        <Button
-          data-mm-tutorial-click
-          size="small"
-          onClick={() => copy(exampleCode)}
-          sx={{
-            padding: "2px",
-            position: "absolute",
-            bottom: "5px",
-            right: "5px",
-          }}
-        >
+      </p>
+      <div className="relative">
+        <textarea className="p-2 py-4 w-full text-xs font-mono rounded-none outline-none text-[#000] " defaultValue={exampleCode} rows={5} readOnly></textarea>
+        <button data-mm-tutorial-click onClick={() => copy(exampleCode)} className="absolute bottom-2.5 right-1.5 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-1.5 px-4 font-medium" >
           Copy
-        </Button>
-      </Box>
-      <Typography variant="body2" my={3}>
+        </button>
+      </div>
+      <p className="my-5 text-sm">
         2. <strong>Right-click</strong> one of the list items and choose{" "}
         <strong>Open in Editor</strong>.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border h-auto max-w-full"
         src="/editor-paste.gif"
-        border={1}
-        sx={{
-          maxWidth: "100%",
-          height: "auto",
-        }}
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         3. <strong>Paste</strong> the code before the line with{" "}
         <code>const labelId</code>, and <strong>save the file</strong>.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="my-5 text-sm">
         4. <strong>Switch to Drive mode</strong> and test the filters. They
         should now work!
-      </Typography>
+      </p>
     </Instructions>
   );
 }
@@ -308,19 +211,17 @@ function Step4() {
 function Step5() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 5: Git Diff
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-5 text-sm">
         Let’s see what changes we’ve made so far.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="my-5 text-sm">
         <strong>Your task:</strong> Click on the diff icon in the toolbar.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/diff.png"
-        sx={{ border: 1 }}
         width="212px"
         height="48px"
       />
@@ -331,35 +232,26 @@ function Step5() {
 function Step6() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 6: Active Component
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-5 text-sm">
         MightyMeld shows one active component at a time. Right now that should
         be <code>&lt;App&gt;</code>.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="my-5 text-sm">
         1. In edit mode, <strong>double-click</strong>{" "}
         <code>&lt;Header&gt;</code> to make it active.
-      </Typography>
-      <Box
-        component="img"
-        src="/component-down.gif"
-        sx={{
-          border: 1,
-        }}
+      </p>
+      <img className="border" src="/component-down.gif"
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         2. <strong>Click the arrow</strong> to go back up to{" "}
         <code>&lt;App&gt;</code>.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/component-up.gif"
-        sx={{
-          border: 1,
-        }}
         width="100%"
       />
     </Instructions>
@@ -369,29 +261,23 @@ function Step6() {
 function Step7() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 7: Prefabs
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="my-5 text-sm">
         1. In edit mode, <strong>open the MUI prefabs </strong> from the library
         panel.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/show-prefabs.gif"
-        sx={{
-          border: 1,
-        }}
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         2. <strong>Drag</strong> a <code>&lt;Button&gt;</code> into the{" "}
         <code>&lt;Stack&gt;</code>.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/drag-button.gif"
-        sx={{ border: 1 }}
         width="100%"
       />
     </Instructions>
@@ -401,29 +287,21 @@ function Step7() {
 function Step8() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
-        Step 7: Text
-      </Typography>
-      <Typography variant="body2" my={3}>
+      <h5 className="mb-5 font-medium text-xl ">
+        Step 8: Text
+      </h5>
+      <p className="mb-5 text-sm">
         1. <strong>Select</strong> the button’s text node.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/select-text-node.gif"
-        sx={{
-          border: 1,
-        }}
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="my-5 text-sm">
         2. <strong>Rename</strong> the label to “Clear”.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/edit-text-node.gif"
-        sx={{
-          border: 1,
-        }}
         width="100%"
       />
     </Instructions>
@@ -433,30 +311,26 @@ function Step8() {
 function Step9() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         Step 9: Adding props
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="mb-5 text-sm">
         Let’s give some functionality to the “Clear” button.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="mb-5 text-sm">
         1. <strong>Select</strong> the button.
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </p>
+      <p className="mb-5 text-sm">
         2. <strong>Add a new prop</strong> named <code>onClick</code> with the
         value <code>clearCompleted</code>.
-      </Typography>
-      <Box
-        component="img"
+      </p>
+      <img className="border"
         src="/onclick-handler.gif"
-        sx={{
-          border: 1,
-        }}
         width="100%"
       />
-      <Typography variant="body2" my={3}>
+      <p className="mb-5 text-sm">
         3. In Drive mode, <strong>click the Clear button</strong>.
-      </Typography>
+      </p>
     </Instructions>
   );
 }
@@ -464,31 +338,31 @@ function Step9() {
 function Step10() {
   return (
     <Instructions>
-      <Typography variant="h5" mb={3}>
+      <h5 className="mb-5 font-medium text-xl ">
         You did it!
-      </Typography>
-      <Typography variant="body2" my={3}>
+      </h5>
+      <p className="mb-5 text-sm">
         Congrats on completing this fully functional to-do app! Here’s some
         ideas on what to try next:
-      </Typography>
-      <Typography variant="body2" my={3}>
-        <Link
+      </p>
+      <p className="my-5 text-sm">
+        <a
           data-mm-tutorial-click
           href="https://docs.mightymeld.com/docs/setup/getting-started/quick-start"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           Set up your own project →
-        </Link>
-      </Typography>
-      <Typography variant="body2" my={3}>
-        <Link
+        </a>
+      </p>
+      <p className="my-5 text-sm">
+        <a
           data-mm-tutorial-click
           href="https://github.com/mightymeld/awesome-mightymeld#-sample-projects"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           Try a sample project →
-        </Link>
-      </Typography>
+        </a>
+      </p>
     </Instructions>
   );
 }
