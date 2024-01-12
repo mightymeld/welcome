@@ -49,12 +49,12 @@ function Instructions({ children, showNav }) {
   return (
     <ThemeProvider theme={instructionsTheme}>
       <div data-mm-ignore-tree className="fixed top-0 left-0 w-[300px] ">
-        <div className="bg-[#19163E] text-[#D5D5E3] p-1 pb-0 h-screen border-0 border-r box-border overflow-auto " >
+        <div className="bg-[#19163E] text-[#D5D5E3] p-4 pb-0 h-screen border-0 border-r box-border overflow-auto " >
           {children}
         </div>
         {prevPath && (
           <Link to={prevPath}>
-            <button data-mm-tutorial-click className="absolute bottom-5 left-4 text-xs text-white bg-[#582AB9] py-2.5 px-5 font-medium" >
+            <button data-mm-tutorial-click className="absolute bottom-5 left-4 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
               ← Previous
             </button>
           </Link>
@@ -62,7 +62,7 @@ function Instructions({ children, showNav }) {
         )}
         {nextPath && (
           <Link to={nextPath}>
-            <button data-mm-tutorial-click className="absolute bottom-5 right-4 text-xs text-white bg-[#582AB9] py-2.5 px-5 font-medium" >
+            <button data-mm-tutorial-click className="absolute bottom-5 right-4 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
               Next →
             </button>
           </Link>
@@ -79,7 +79,7 @@ Instructions.defaultProps = {
 function Step0() {
   return (
     <Instructions showNav={false}>
-      <div className="max-w-[600px] ">
+      <div className="max-w-[600px]">
         <h1 className="mt-5 font-medium text-[58px] ">
           Welcome
         </h1>
@@ -87,7 +87,7 @@ function Step0() {
           This app teaches you how to use MightyMeld.
         </p>
         <Link to="/step/1">
-          <button data-mm-tutorial-click className=" text-xs text-white bg-[#582AB9] py-2.5 px-5 font-medium" >
+          <button data-mm-tutorial-click className=" text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-2.5 px-5 font-medium" >
             Begin Tutorial
           </button>
         </Link>
@@ -102,7 +102,7 @@ function Step1() {
       <h5 className="mb-5 font-medium text-xl ">
         Step 1: Selection
       </h5>
-      <p className="my-5 text-sm">
+      <p className="my-6 text-sm">
         On the right you’ll see a partially built to-do app. Let’s start by{" "}
         <strong>clicking</strong> on various parts of it.
       </p>
@@ -110,7 +110,7 @@ function Step1() {
         src="/selecting-things.gif"
         width="100%"
       />
-      <p className="my-5 text-sm">
+      <p className="my-6 text-sm">
         Notice how the left and right panels change in response to what you
         select.
       </p>
@@ -155,7 +155,7 @@ function Step3() {
       </p>
       <p className="my-5 text-sm">
         1. <strong>Switch to edit mode</strong> and <strong>select</strong> the{" "}
-        <code>&lt;Stack&gt;</code> surrounding the filter.
+        <code>&lt;nav&gt;</code> surrounding the filter.
       </p>
       <img className="border max-w-full h-auto mb-2"
         src="/edit-mode-select-filter-stack.gif"
@@ -187,7 +187,7 @@ function Step4() {
       </p>
       <div className="relative">
         <textarea className="p-2 py-4 w-full text-xs font-mono rounded-none outline-none text-[#000] " defaultValue={exampleCode} rows={5} readOnly></textarea>
-        <button data-mm-tutorial-click onClick={() => copy(exampleCode)} className="absolute bottom-2.5 right-1.5 text-xs text-white bg-[#582AB9] py-1.5 px-4 font-medium" >
+        <button data-mm-tutorial-click onClick={() => copy(exampleCode)} className="absolute bottom-2.5 right-1.5 text-xs text-white bg-[#582AB9] hover:bg-[#452191] py-1.5 px-4 font-medium" >
           Copy
         </button>
       </div>

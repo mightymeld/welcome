@@ -32,13 +32,13 @@ export default function App() {
 							className="block px-2.5 pb-2 pt-4 w-full text-md text-gray-900 bg-white border-0 border-b border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-[#17a5ea] peer" placeholder=" " />
 						<label htmlFor="filled_success" className="absolute text-md text-gray-600 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">What needs to be done?</label>
 					</div>
-					<button className="bg-[#17a5ea] rounded shadow-md py-2 px-4 text-white " onClick={() => addTask()}>Add</button>
+					<button className="bg-[#17a5ea] hover:bg-[#1182bb] rounded shadow-md py-2 px-4 text-white " onClick={() => addTask()}>Add</button>
 				</div>
 				<nav className="mt-8 mb-3 rounded inline-flex flex-row justify-between border bg-white divide-x">
 					{
 						["all", "active", "done"].map((item, i) => (
 							<button key={i}
-								className={`px-[17px] py-[9px] uppercase text-sm ${filter === item ? "background-blue text-[#17a5ea]" : ""}`}
+								className={`px-[17px] py-[9px] uppercase text-sm ${filter === item ? "background-blue text-[#17a5ea] " : ""}`}
 								onClick={() => setFilter(item)}
 							>
 								{item}
