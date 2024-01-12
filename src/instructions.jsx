@@ -61,7 +61,7 @@ function Instructions({ children, showNav }) {
           position: "fixed",
           top: 0,
           left: 0,
-          width: '300px'
+          width: "300px",
         }}
       >
         <Box
